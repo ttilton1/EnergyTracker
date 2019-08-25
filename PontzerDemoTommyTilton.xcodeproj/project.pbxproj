@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		71CF6C417B7617E9C1CE8133 /* Pods_PontzerDemoTommyTilton.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D623452C9019BB3AD11AD91 /* Pods_PontzerDemoTommyTilton.framework */; };
 		BA1557C2231220E300DFAFA1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1557C1231220E300DFAFA1 /* AppDelegate.swift */; };
 		BA1557C4231220E300DFAFA1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1557C3231220E300DFAFA1 /* ViewController.swift */; };
 		BA1557C7231220E300DFAFA1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA1557C5231220E300DFAFA1 /* Main.storyboard */; };
@@ -17,9 +18,13 @@
 		BA1557D82312220E00DFAFA1 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1557D72312220E00DFAFA1 /* HomeViewController.swift */; };
 		BAD0D2B42313126700F96108 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD0D2B22313126700F96108 /* Constants.swift */; };
 		BAD0D2B52313126700F96108 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD0D2B32313126700F96108 /* Utilities.swift */; };
+		BAD0D2B72313191600F96108 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BAD0D2B62313191600F96108 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4D623452C9019BB3AD11AD91 /* Pods_PontzerDemoTommyTilton.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PontzerDemoTommyTilton.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A20DF2DBF6AC9C018375909 /* Pods-PontzerDemoTommyTilton.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PontzerDemoTommyTilton.release.xcconfig"; path = "Target Support Files/Pods-PontzerDemoTommyTilton/Pods-PontzerDemoTommyTilton.release.xcconfig"; sourceTree = "<group>"; };
+		ABC3F50717F9FCFA808D8806 /* Pods-PontzerDemoTommyTilton.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PontzerDemoTommyTilton.debug.xcconfig"; path = "Target Support Files/Pods-PontzerDemoTommyTilton/Pods-PontzerDemoTommyTilton.debug.xcconfig"; sourceTree = "<group>"; };
 		BA1557BE231220E300DFAFA1 /* PontzerDemoTommyTilton.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PontzerDemoTommyTilton.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA1557C1231220E300DFAFA1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BA1557C3231220E300DFAFA1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -32,6 +37,7 @@
 		BA1557D72312220E00DFAFA1 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		BAD0D2B22313126700F96108 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BAD0D2B32313126700F96108 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		BAD0D2B62313191600F96108 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,17 +45,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71CF6C417B7617E9C1CE8133 /* Pods_PontzerDemoTommyTilton.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		70DE9C7E26EA8E85F383FC96 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				ABC3F50717F9FCFA808D8806 /* Pods-PontzerDemoTommyTilton.debug.xcconfig */,
+				7A20DF2DBF6AC9C018375909 /* Pods-PontzerDemoTommyTilton.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		BA1557B5231220E300DFAFA1 = {
 			isa = PBXGroup;
 			children = (
 				BA1557C0231220E300DFAFA1 /* LoginDemoTommyTilton */,
 				BA1557BF231220E300DFAFA1 /* Products */,
+				70DE9C7E26EA8E85F383FC96 /* Pods */,
+				CA461FCF2A5BC77F0CD7E775 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -70,6 +89,7 @@
 				BA1557C8231220E500DFAFA1 /* Assets.xcassets */,
 				BAD0D2B12313126700F96108 /* Helpers */,
 				BA1557CA231220E500DFAFA1 /* LaunchScreen.storyboard */,
+				BAD0D2B62313191600F96108 /* GoogleService-Info.plist */,
 				BA1557CD231220E500DFAFA1 /* Info.plist */,
 			);
 			path = LoginDemoTommyTilton;
@@ -96,6 +116,14 @@
 			path = ../../../../../Downloads/CustomLoginDemo/CustomLoginDemo/Helpers;
 			sourceTree = "<group>";
 		};
+		CA461FCF2A5BC77F0CD7E775 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4D623452C9019BB3AD11AD91 /* Pods_PontzerDemoTommyTilton.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -103,9 +131,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BA1557D0231220E500DFAFA1 /* Build configuration list for PBXNativeTarget "PontzerDemoTommyTilton" */;
 			buildPhases = (
+				A7660D70CA26D6BC57BCDBA4 /* [CP] Check Pods Manifest.lock */,
 				BA1557BA231220E300DFAFA1 /* Sources */,
 				BA1557BB231220E300DFAFA1 /* Frameworks */,
 				BA1557BC231220E300DFAFA1 /* Resources */,
+				071085AA6048A696891A5767 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -155,12 +185,55 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA1557CC231220E500DFAFA1 /* LaunchScreen.storyboard in Resources */,
+				BAD0D2B72313191600F96108 /* GoogleService-Info.plist in Resources */,
 				BA1557C9231220E500DFAFA1 /* Assets.xcassets in Resources */,
 				BA1557C7231220E300DFAFA1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		071085AA6048A696891A5767 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PontzerDemoTommyTilton/Pods-PontzerDemoTommyTilton-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PontzerDemoTommyTilton/Pods-PontzerDemoTommyTilton-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PontzerDemoTommyTilton/Pods-PontzerDemoTommyTilton-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A7660D70CA26D6BC57BCDBA4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PontzerDemoTommyTilton-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BA1557BA231220E300DFAFA1 /* Sources */ = {
@@ -317,6 +390,7 @@
 		};
 		BA1557D1231220E500DFAFA1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ABC3F50717F9FCFA808D8806 /* Pods-PontzerDemoTommyTilton.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -335,6 +409,7 @@
 		};
 		BA1557D2231220E500DFAFA1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7A20DF2DBF6AC9C018375909 /* Pods-PontzerDemoTommyTilton.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

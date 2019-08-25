@@ -20,7 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		BA1557BE231220E300DFAFA1 /* LoginDemoTommyTilton.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoginDemoTommyTilton.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA1557BE231220E300DFAFA1 /* PontzerDemoTommyTilton.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PontzerDemoTommyTilton.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA1557C1231220E300DFAFA1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BA1557C3231220E300DFAFA1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BA1557C6231220E300DFAFA1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -56,7 +56,7 @@
 		BA1557BF231220E300DFAFA1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				BA1557BE231220E300DFAFA1 /* LoginDemoTommyTilton.app */,
+				BA1557BE231220E300DFAFA1 /* PontzerDemoTommyTilton.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -99,9 +99,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		BA1557BD231220E300DFAFA1 /* LoginDemoTommyTilton */ = {
+		BA1557BD231220E300DFAFA1 /* PontzerDemoTommyTilton */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BA1557D0231220E500DFAFA1 /* Build configuration list for PBXNativeTarget "LoginDemoTommyTilton" */;
+			buildConfigurationList = BA1557D0231220E500DFAFA1 /* Build configuration list for PBXNativeTarget "PontzerDemoTommyTilton" */;
 			buildPhases = (
 				BA1557BA231220E300DFAFA1 /* Sources */,
 				BA1557BB231220E300DFAFA1 /* Frameworks */,
@@ -111,9 +111,9 @@
 			);
 			dependencies = (
 			);
-			name = LoginDemoTommyTilton;
+			name = PontzerDemoTommyTilton;
 			productName = LoginDemoTommyTilton;
-			productReference = BA1557BE231220E300DFAFA1 /* LoginDemoTommyTilton.app */;
+			productReference = BA1557BE231220E300DFAFA1 /* PontzerDemoTommyTilton.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -131,7 +131,7 @@
 					};
 				};
 			};
-			buildConfigurationList = BA1557B9231220E300DFAFA1 /* Build configuration list for PBXProject "LoginDemoTommyTilton" */;
+			buildConfigurationList = BA1557B9231220E300DFAFA1 /* Build configuration list for PBXProject "PontzerDemoTommyTilton" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -144,7 +144,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				BA1557BD231220E300DFAFA1 /* LoginDemoTommyTilton */,
+				BA1557BD231220E300DFAFA1 /* PontzerDemoTommyTilton */,
 			);
 		};
 /* End PBXProject section */
@@ -326,7 +326,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = PresidioWorks.LoginDemoTommyTilton;
+				PRODUCT_BUNDLE_IDENTIFIER = PresidioWorks.PontzerDemoTommyTilton;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -344,7 +344,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = PresidioWorks.LoginDemoTommyTilton;
+				PRODUCT_BUNDLE_IDENTIFIER = PresidioWorks.PontzerDemoTommyTilton;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -354,7 +354,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		BA1557B9231220E300DFAFA1 /* Build configuration list for PBXProject "LoginDemoTommyTilton" */ = {
+		BA1557B9231220E300DFAFA1 /* Build configuration list for PBXProject "PontzerDemoTommyTilton" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BA1557CE231220E500DFAFA1 /* Debug */,
@@ -363,7 +363,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BA1557D0231220E500DFAFA1 /* Build configuration list for PBXNativeTarget "LoginDemoTommyTilton" */ = {
+		BA1557D0231220E500DFAFA1 /* Build configuration list for PBXNativeTarget "PontzerDemoTommyTilton" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BA1557D1231220E500DFAFA1 /* Debug */,

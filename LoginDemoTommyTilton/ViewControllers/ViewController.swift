@@ -17,7 +17,8 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        title = "Welcome"
+        navigationController?.navigationBar.prefersLargeTitles = true //large title
         setUpElements()
     }
     

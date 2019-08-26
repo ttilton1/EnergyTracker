@@ -19,6 +19,8 @@
 		BAD0D2B72313191600F96108 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BAD0D2B62313191600F96108 /* GoogleService-Info.plist */; };
 		BAD0D2B923136D8F00F96108 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD0D2B823136D8F00F96108 /* Constants.swift */; };
 		BAD0D2BB23136DC100F96108 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD0D2BA23136DC100F96108 /* Utilities.swift */; };
+		BAD0D2BE2314315400F96108 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD0D2BD2314315400F96108 /* WelcomeViewController.swift */; };
+		BAD0D2C02314388000F96108 /* MealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD0D2BF2314388000F96108 /* MealViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		BAD0D2B62313191600F96108 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BAD0D2B823136D8F00F96108 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BAD0D2BA23136DC100F96108 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		BAD0D2BD2314315400F96108 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		BAD0D2BF2314388000F96108 /* MealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +106,8 @@
 				BA1557D3231221BB00DFAFA1 /* SignUpViewController.swift */,
 				BA1557D5231221DA00DFAFA1 /* LoginViewController.swift */,
 				BA1557D72312220E00DFAFA1 /* HomeViewController.swift */,
+				BAD0D2BD2314315400F96108 /* WelcomeViewController.swift */,
+				BAD0D2BF2314388000F96108 /* MealViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -231,12 +237,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA1557D82312220E00DFAFA1 /* HomeViewController.swift in Sources */,
+				BAD0D2BE2314315400F96108 /* WelcomeViewController.swift in Sources */,
 				BA1557D6231221DA00DFAFA1 /* LoginViewController.swift in Sources */,
 				BAD0D2BB23136DC100F96108 /* Utilities.swift in Sources */,
 				BA1557D4231221BB00DFAFA1 /* SignUpViewController.swift in Sources */,
 				BA1557C4231220E300DFAFA1 /* ViewController.swift in Sources */,
 				BA1557C2231220E300DFAFA1 /* AppDelegate.swift in Sources */,
 				BAD0D2B923136D8F00F96108 /* Constants.swift in Sources */,
+				BAD0D2C02314388000F96108 /* MealViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

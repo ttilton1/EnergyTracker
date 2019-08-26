@@ -82,17 +82,17 @@ class SignUpViewController: UIViewController {
         }
         else {
             
-        //create clean versions of the data
-        let firstName = firstNameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-        let lastName = lastNameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-        let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-        let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+            //create clean versions of the data
+            let firstName = firstNameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+            let lastName = lastNameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+            let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+            let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             
-        //create the user
+            //create the user
             Auth.auth().createUser(withEmail: email, password: password) { (result, err) in
                 //check for errors
                 if err != nil {
-                     //if err = err then error, not nil
+                    //if err = err then error, not nil
                     self.showError("Error creating user")
                 }
                 else {
@@ -120,11 +120,16 @@ class SignUpViewController: UIViewController {
     }
     
     func transitionToHome() {
-       let homeViewController = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.homeViewController) as? HomeViewController
-        
+      /* //TUTORIAL Way
+    let homeViewController = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.homeViewController) as? HomeViewController
         view.window?.rootViewController = homeViewController
         view.window?.makeKeyAndVisible()
- 
+        */ //newway
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.homeViewController) as! UITableViewController
+         let vc = UINavigationController(rootViewController: controller)
+         self.present(vc, animated: true, completion: nil)
+
         /*
         if let vc = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.homeViewController) as? HomeViewController {
             //maybe should put rootviewcontroller assignment here.

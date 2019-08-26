@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import FirebaseAuth
+import Firebase
 
 class HomeViewController: UITableViewController {
     
@@ -18,7 +20,25 @@ class HomeViewController: UITableViewController {
         // Do any additional setup after loading the view.
         title = "Metabolic Data Entry"
         navigationController?.navigationBar.prefersLargeTitles = true //large title
-        
+        let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        //request new ui bar button item that is flexible space, not tapped so no target or action
+        let signOut = UIBarButtonItem(title: "logout", style: .done, target: self, action: #selector(logout))
+        toolbarItems = [spacer, signOut] //array with flex space and reset button, tooolbarItems comes
+        navigationController?.isToolbarHidden = false //toolbar shownr
+    }
+    
+    @objc func logout() {
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+        }
+        //navigate to signup/ log in screen
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.viewController) as UIViewController
+        let vc = UINavigationController(rootViewController: controller)
+        self.present(vc, animated: true, completion: nil)
     }
     
     //rows stuff
@@ -36,6 +56,16 @@ class HomeViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "itemChoice", for: indexPath) //creates new constant cell by dequeuing recycled cell from table, give it identifier which matches what we said in Interface Builder "Picture"
         cell.textLabel?.text = choices[indexPath.row] //gives table cell same as picture name from pictures array, ? shows may or may not be textlabel
         return cell
+    }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let vc = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.mealViewController) as? MealViewController {
+            navigationController?.pushViewController(vc, animated: true)
+        }
+        //storyboard might be present or nil, so use ? - optional chaining
+        //instantiateViewController might fail if not "Detail"
+        //typecast might fail
+        //if statement guarentee in safestate before steps taken
+        
     }
     
     

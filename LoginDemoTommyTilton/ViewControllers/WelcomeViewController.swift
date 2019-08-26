@@ -1,50 +1,31 @@
 //
-//  ViewController.swift
-//  LoginDemoTommyTilton
+//  WelcomeViewController.swift
+//  PontzerDemoTommyTilton
 //
-//  Created by Thomas Tilton on 8/24/19.
+//  Created by Thomas Tilton on 8/26/19.
 //  Copyright © 2019 Thomas Tilton. All rights reserved.
 //
 
 import UIKit
-import Firebase
 import FirebaseAuth
 
-class ViewController: UIViewController {
-    
-    //IBOutlets
-    @IBOutlet weak var signUpButton: UIButton!
-    @IBOutlet weak var loginButton: UIButton!
-    
+class WelcomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        /*
         Auth.auth().addStateDidChangeListener {
             auth, user in
             if user != nil {
-                self.switchStoryboard()
+                self.goToHome()
+            }
+            else {
+                self.goToSignUpLogIn()
             }
         }
-        */
-        title = "Welcome"
-        navigationController?.navigationBar.prefersLargeTitles = true //large title
-        /*
-         FIRAuth.auth()!.addStateDidChangeListener() { auth, user in
-         if user != nil {
-         self.switchStoryboard()
-         }
-         }
- */
-        setUpElements()
+        // Do any additional setup after loading the view.
     }
     
-    func setUpElements() {
-        Utilities.styleFilledButton(signUpButton)
-        Utilities.styleHollowButton(loginButton)
-    }
-    
-    func switchStoryboard() {
+    func goToHome() {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.homeViewController) as! UITableViewController
@@ -53,10 +34,13 @@ class ViewController: UIViewController {
          present(vc, animated: true, completion: nil)*/
         let vc = UINavigationController(rootViewController: controller)
         self.present(vc, animated: true, completion: nil)
-
-        
+    }
+    
+    func goToSignUpLogIn() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.viewController) as UIViewController
+        let vc = UINavigationController(rootViewController: controller)
+        self.present(vc, animated: true, completion: nil)
     }
 
-
 }
-

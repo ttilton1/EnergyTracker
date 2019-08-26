@@ -68,13 +68,24 @@ class LoginViewController: UIViewController {
     }
     
     func transitionToHome() {
-    //Option 1
+ /*   //Option 1
     let homeViewController = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.homeViewController) as? HomeViewController
         
     view.window?.rootViewController = homeViewController
     view.window?.makeKeyAndVisible()
- 
+ */ // new way
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.homeViewController) as! UITableViewController
+        let vc = UINavigationController(rootViewController: controller)
+        self.present(vc, animated: true, completion: nil)
+
+        /*
+    let navViewController = storyboard?.instantiateViewController(withIdentifier: "nav2") as? UINavigationController
+    view.window?.rootViewController = navViewController
+    view.window?.makeKeyAndVisible()
+ */
    /*
+     
         //option2
          if let vc = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.homeViewController) as? HomeViewController {
             //maybe should put rootviewcontroller assignment here.

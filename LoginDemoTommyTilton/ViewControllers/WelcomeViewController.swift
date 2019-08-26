@@ -37,10 +37,17 @@ class WelcomeViewController: UIViewController {
     }
     
     func goToSignUpLogIn() {
+  
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.viewController) as UIViewController
         let vc = UINavigationController(rootViewController: controller)
         self.present(vc, animated: true, completion: nil)
+
+ /*
+        if let vc = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.viewController) as? ViewController {
+            navigationController?.pushViewController(vc, animated: true)
+        }
+        */
     }
 
 }

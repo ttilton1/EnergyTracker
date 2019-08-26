@@ -40,7 +40,14 @@ class LoginViewController: UIViewController {
     @IBAction func loginTapped(_ sender: Any) {
         
         //TODO: Validate text fields - make sure all full - use same as sign in view controller
-        
+        //validate the fields
+        let error = validateFields()
+        if error != nil {
+            //there was an error, something wrong with fields, show error message
+            showError(error!)
+            
+        }
+        else {
         //create clean versions of email and password
         let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -58,6 +65,7 @@ class LoginViewController: UIViewController {
         }
         
     }
+    }
     
     func transitionToHome() {
         let homeViewController = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.homeViewController) as? HomeViewController
@@ -66,6 +74,24 @@ class LoginViewController: UIViewController {
         view.window?.makeKeyAndVisible()
     }
     
+    func validateFields() -> String? {
+        
+        
+        //FIND REGULAR EXPRESSION FOR CHECKING EMAIL FORMAT
+        
+        //Check that all fields filled in
+        if emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
+            passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
+            return "Please fill in all fields."
+        }
+        
+        return nil
+    }
+    
+    func showError(_ message: String) {
+        errorLabel.text = message
+        errorLabel.alpha = 1
+    }
 
     
 }

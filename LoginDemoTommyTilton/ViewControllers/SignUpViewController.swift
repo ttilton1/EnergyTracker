@@ -55,6 +55,11 @@ class SignUpViewController: UIViewController {
             passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
             return "Please fill in all fields."
         }
+        //Check if Duke email
+        let email = emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+        if !(email!.contains("@duke.edu")) {
+            return "Please give valid university address."
+        }
         //Check if password is secure - calls method in utilities that confirms it's atleast 8 chacters, has special character
         let cleanedPassword = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         if Utilities.isPasswordValid(cleanedPassword) == false {

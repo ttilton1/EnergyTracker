@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,9 +16,9 @@
 		BA1557D4231221BB00DFAFA1 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1557D3231221BB00DFAFA1 /* SignUpViewController.swift */; };
 		BA1557D6231221DA00DFAFA1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1557D5231221DA00DFAFA1 /* LoginViewController.swift */; };
 		BA1557D82312220E00DFAFA1 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1557D72312220E00DFAFA1 /* HomeViewController.swift */; };
-		BAD0D2B42313126700F96108 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD0D2B22313126700F96108 /* Constants.swift */; };
-		BAD0D2B52313126700F96108 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD0D2B32313126700F96108 /* Utilities.swift */; };
 		BAD0D2B72313191600F96108 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BAD0D2B62313191600F96108 /* GoogleService-Info.plist */; };
+		BAD0D2B923136D8F00F96108 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD0D2B823136D8F00F96108 /* Constants.swift */; };
+		BAD0D2BB23136DC100F96108 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD0D2BA23136DC100F96108 /* Utilities.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,9 +35,9 @@
 		BA1557D3231221BB00DFAFA1 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		BA1557D5231221DA00DFAFA1 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BA1557D72312220E00DFAFA1 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		BAD0D2B22313126700F96108 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		BAD0D2B32313126700F96108 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		BAD0D2B62313191600F96108 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		BAD0D2B823136D8F00F96108 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		BAD0D2BA23136DC100F96108 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +58,6 @@
 				ABC3F50717F9FCFA808D8806 /* Pods-PontzerDemoTommyTilton.debug.xcconfig */,
 				7A20DF2DBF6AC9C018375909 /* Pods-PontzerDemoTommyTilton.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -87,10 +86,11 @@
 				BA1557C1231220E300DFAFA1 /* AppDelegate.swift */,
 				BA1557C5231220E300DFAFA1 /* Main.storyboard */,
 				BA1557C8231220E500DFAFA1 /* Assets.xcassets */,
-				BAD0D2B12313126700F96108 /* Helpers */,
 				BA1557CA231220E500DFAFA1 /* LaunchScreen.storyboard */,
 				BAD0D2B62313191600F96108 /* GoogleService-Info.plist */,
 				BA1557CD231220E500DFAFA1 /* Info.plist */,
+				BAD0D2B823136D8F00F96108 /* Constants.swift */,
+				BAD0D2BA23136DC100F96108 /* Utilities.swift */,
 			);
 			path = LoginDemoTommyTilton;
 			sourceTree = "<group>";
@@ -104,16 +104,6 @@
 				BA1557D72312220E00DFAFA1 /* HomeViewController.swift */,
 			);
 			path = ViewControllers;
-			sourceTree = "<group>";
-		};
-		BAD0D2B12313126700F96108 /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				BAD0D2B22313126700F96108 /* Constants.swift */,
-				BAD0D2B32313126700F96108 /* Utilities.swift */,
-			);
-			name = Helpers;
-			path = ../../../../../Downloads/CustomLoginDemo/CustomLoginDemo/Helpers;
 			sourceTree = "<group>";
 		};
 		CA461FCF2A5BC77F0CD7E775 /* Frameworks */ = {
@@ -242,11 +232,11 @@
 			files = (
 				BA1557D82312220E00DFAFA1 /* HomeViewController.swift in Sources */,
 				BA1557D6231221DA00DFAFA1 /* LoginViewController.swift in Sources */,
-				BAD0D2B52313126700F96108 /* Utilities.swift in Sources */,
+				BAD0D2BB23136DC100F96108 /* Utilities.swift in Sources */,
 				BA1557D4231221BB00DFAFA1 /* SignUpViewController.swift in Sources */,
 				BA1557C4231220E300DFAFA1 /* ViewController.swift in Sources */,
 				BA1557C2231220E300DFAFA1 /* AppDelegate.swift in Sources */,
-				BAD0D2B42313126700F96108 /* Constants.swift in Sources */,
+				BAD0D2B923136D8F00F96108 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

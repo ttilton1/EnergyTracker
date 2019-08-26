@@ -71,16 +71,22 @@ class MealViewController: UIViewController {
             let mealSize = mealSizeText.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             let timestamp = NSDate().timeIntervalSince1970
             let userID = Auth.auth().currentUser!.uid
-
+            let stringDate = getCurrentStringDate()
+            
+            //instantiate Database data array
+            let docData: [String: Any] = ["food content":foodContent, "location":location, "meal size":mealSize, "time":timestamp]
+            
             //User was created successfully, now store first and last name in new "document" in firestore
             let db = Firestore.firestore()
-            
+        db.collection("users").document(userID).collection("Meals").document(stringDate).setData(docData)
+            /*//Old code
             db.collection("users").document(userID).collection("Meals").addDocument(data: ["food content":foodContent, "location":location, "meal size":mealSize, "time":timestamp]) { (error) in
                     if error != nil {
                         //Show error message
                         self.showError("Error saving user data")
                         }
                     }
+                */
                 //transition to homescreen
                 self.transitionToHome()
                     
@@ -94,6 +100,19 @@ class MealViewController: UIViewController {
         let controller = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.homeViewController) as! UITableViewController
         let vc = UINavigationController(rootViewController: controller)
         self.present(vc, animated: true, completion: nil)
+    }
+    
+    func getCurrentStringDate() -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let myString = formatter.string(from: Date()) // string purpose I add here
+        // convert your string to date
+        let yourDate = formatter.date(from: myString)
+        //then again set the date format whhich type of output you need
+     //   formatter.dateFormat = "dd-MMM-yyyy"
+        // again convert your date to string
+        let stringDate = formatter.string(from: yourDate!)
+        return stringDate
     }
     
 

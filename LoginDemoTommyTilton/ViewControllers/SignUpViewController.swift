@@ -97,13 +97,21 @@ class SignUpViewController: UIViewController {
                 }
                 else {
                     //User was created successfully, now store first and last name in new "document" in firestore
+                    let uid = result!.user.uid
+                    let docData: [String: Any] = ["firstname":firstName, "lastname":lastName, "uid":uid]
                     let db = Firestore.firestore()
+                    db.collection("users").document(uid).setData(docData)
+                //   db.collection("users").document(result!.user.uid.set)  Auth.auth().currentUser!.uid
+                   // db.collection("users").document( set(result!.user.uid))
+                    
+                    /* //Old way, no way of setting Document ID
                     db.collection("users").addDocument(data: ["firstname":firstName, "lastname":lastName, "uid":result!.user.uid]) { (error) in
                         if error != nil {
                             //Show error message
                             self.showError("Error saving user data")
                         }
                     }
+                    */
                     //transition to homescreen
                     self.transitionToHome()
                     

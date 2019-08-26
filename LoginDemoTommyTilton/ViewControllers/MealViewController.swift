@@ -70,10 +70,12 @@ class MealViewController: UIViewController {
             let foodContent = foodContentText.text!.trimmingCharacters(in: .newlines)
             let mealSize = mealSizeText.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             let timestamp = NSDate().timeIntervalSince1970
+            let userID = Auth.auth().currentUser!.uid
 
             //User was created successfully, now store first and last name in new "document" in firestore
             let db = Firestore.firestore()
-            db.collection("Meals").document("rERvvOVqWXdxcpJ0kmWa").collection("Meals").addDocument(data: ["Food content":foodContent, "Location":location, "Meal Size":mealSize, "Time":timestamp]) { (error) in
+            
+            db.collection("users").document(userID).collection("Meals").addDocument(data: ["food content":foodContent, "location":location, "meal size":mealSize, "time":timestamp]) { (error) in
                     if error != nil {
                         //Show error message
                         self.showError("Error saving user data")

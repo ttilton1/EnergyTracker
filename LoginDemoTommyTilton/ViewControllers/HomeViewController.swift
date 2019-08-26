@@ -18,8 +18,13 @@ class HomeViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        title = "Metabolic Data Entry"
+        
         navigationController?.navigationBar.prefersLargeTitles = true //large title
+        /* //COLOR CHANGING NOT WORKING HERE
+ navigationController?.navigationBar.titleTextAttributes =
+            [NSAttributedString.Key.strokeColor: UIColor.init(red: 21/255, green: 70/255, blue: 232/255, alpha: 1)]
+ */
+        title = "Metabolic Data Entry"
         let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         //request new ui bar button item that is flexible space, not tapped so no target or action
         let signOut = UIBarButtonItem(title: "logout", style: .done, target: self, action: #selector(logout))

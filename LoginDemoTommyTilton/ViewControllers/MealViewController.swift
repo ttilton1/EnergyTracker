@@ -11,7 +11,7 @@ import FirebaseFirestore
 import Firebase
 import FirebaseAuth
 
-class MealViewController: UIViewController {
+class MealViewController: UIViewController, UITextFieldDelegate {
 
     //IBOUTLETS
     @IBOutlet weak var locationText: UITextField!
@@ -19,6 +19,7 @@ class MealViewController: UIViewController {
     @IBOutlet weak var mealSizeText: UITextField!
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var errorLabel: UILabel!
+
     
     var createdAt: Double = 0.0
     
@@ -27,6 +28,11 @@ class MealViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpElements()
+        //text delegations
+        self.locationText.delegate = self
+        self.foodContentText.delegate = self
+        self.mealSizeText.delegate = self
+
 
        
     }
@@ -113,6 +119,11 @@ class MealViewController: UIViewController {
         // again convert your date to string
         let stringDate = formatter.string(from: yourDate!)
         return stringDate
+    }
+    //textfield delegate
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
     }
     
 

@@ -11,7 +11,7 @@ import FirebaseFirestore
 import FirebaseAuth
 import Firebase
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
 
     //IB Outlets
     @IBOutlet weak var emailTextField: UITextField!
@@ -23,6 +23,10 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
 
         setUpElements()
+        
+        //textfielddelegates
+        self.emailTextField.delegate = self
+        self.passwordTextField.delegate = self
     }
     
     func setUpElements() {
@@ -34,6 +38,8 @@ class LoginViewController: UIViewController {
         Utilities.styleTextField(emailTextField)
         Utilities.styleTextField(passwordTextField)
         Utilities.styleFilledButton(loginButton)
+        
+        title = "Login"
     }
     
     //IB Method
@@ -115,6 +121,11 @@ class LoginViewController: UIViewController {
     func showError(_ message: String) {
         errorLabel.text = message
         errorLabel.alpha = 1
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
     }
 
     

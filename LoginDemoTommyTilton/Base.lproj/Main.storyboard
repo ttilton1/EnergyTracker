@@ -250,19 +250,19 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="oPJ-Dz-cX5">
                                 <rect key="frame" x="40" y="84" width="334" height="300.5"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="location" borderStyle="roundedRect" placeholder="Location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LzZ-ny-E2S">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LzZ-ny-E2S">
                                         <rect key="frame" x="0.0" y="0.0" width="334" height="50"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="food" borderStyle="roundedRect" placeholder="Food Content" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g88-zM-gnW">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Food Content" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g88-zM-gnW">
                                         <rect key="frame" x="0.0" y="70" width="334" height="50"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="size" borderStyle="roundedRect" placeholder="Meal Size (1, 2, or 3)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NUC-Mf-IJ5">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Meal Size (1, 2, or 3)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NUC-Mf-IJ5">
                                         <rect key="frame" x="0.0" y="140" width="334" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="KZH-Hu-5K0"/>
@@ -287,8 +287,10 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="NUC-Mf-IJ5" firstAttribute="height" secondItem="LzZ-ny-E2S" secondAttribute="height" id="Jt5-1c-Bzg"/>
+                                    <constraint firstAttribute="trailing" secondItem="NUC-Mf-IJ5" secondAttribute="trailing" id="T0L-02-6Tg"/>
                                     <constraint firstItem="NUC-Mf-IJ5" firstAttribute="height" secondItem="yXN-O4-fAY" secondAttribute="height" id="UaL-y8-PTg"/>
                                     <constraint firstItem="NUC-Mf-IJ5" firstAttribute="height" secondItem="g88-zM-gnW" secondAttribute="height" id="db1-jC-kPU"/>
+                                    <constraint firstItem="NUC-Mf-IJ5" firstAttribute="leading" secondItem="oPJ-Dz-cX5" secondAttribute="leading" id="h10-o4-jgz"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -297,6 +299,9 @@
                             <constraint firstItem="ZLs-SH-XIP" firstAttribute="trailing" secondItem="oPJ-Dz-cX5" secondAttribute="trailing" constant="40" id="SCx-jA-bmZ"/>
                             <constraint firstItem="oPJ-Dz-cX5" firstAttribute="leading" secondItem="ZLs-SH-XIP" secondAttribute="leading" constant="40" id="ar7-Sg-bsa"/>
                             <constraint firstItem="oPJ-Dz-cX5" firstAttribute="top" secondItem="ZLs-SH-XIP" secondAttribute="top" constant="40" id="mwg-A1-r1b"/>
+                            <constraint firstItem="oPJ-Dz-cX5" firstAttribute="leading" secondItem="ZLs-SH-XIP" secondAttribute="leading" constant="40" id="sf9-Nb-LtT"/>
+                            <constraint firstItem="oPJ-Dz-cX5" firstAttribute="top" secondItem="ZLs-SH-XIP" secondAttribute="top" constant="40" id="vga-hZ-bpH"/>
+                            <constraint firstItem="ZLs-SH-XIP" firstAttribute="trailing" secondItem="oPJ-Dz-cX5" secondAttribute="trailing" constant="40" id="yb5-5E-yhg"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ZLs-SH-XIP"/>
                     </view>

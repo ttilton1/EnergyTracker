@@ -11,7 +11,7 @@ import FirebaseAuth
 import Firebase
 import FirebaseFirestore
 
-class SignUpViewController: UIViewController {
+class SignUpViewController: UIViewController, UITextFieldDelegate {
 
     //Mainstoryboard elements
     @IBOutlet weak var firstNameTextField: UITextField!
@@ -20,6 +20,8 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var errorLabel: UILabel!
+    //texfield delegattre
+   
     
     
     override func viewDidLoad() {
@@ -27,6 +29,11 @@ class SignUpViewController: UIViewController {
 
         setUpElements()
         
+        //textfield delegate
+        self.firstNameTextField.delegate = self
+        self.lastNameTextField.delegate = self
+        self.emailTextField.delegate = self
+        self.passwordTextField.delegate = self
         // Do any additional setup after loading the view.
     }
     
@@ -41,6 +48,8 @@ class SignUpViewController: UIViewController {
         Utilities.styleTextField(emailTextField)
         Utilities.styleTextField(passwordTextField)
         Utilities.styleFilledButton(signUpButton)
+        
+        title = "Sign Up"
     }
     //validation method - check fields and validate data is correct. if everything correct return nil, otherwise returns error message. send error message to label and show it
     func validateFields() -> String? {
@@ -145,6 +154,12 @@ class SignUpViewController: UIViewController {
         }
  */
 
+    }
+    
+    //textfield delegate
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
     }
     
 }

@@ -68,20 +68,23 @@ class LoginViewController: UIViewController {
     }
     
     func transitionToHome() {
-   /* //Option 1
+    //Option 1
     let homeViewController = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.homeViewController) as? HomeViewController
         
     view.window?.rootViewController = homeViewController
     view.window?.makeKeyAndVisible()
- */
-   
+ 
+   /*
         //option2
          if let vc = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.homeViewController) as? HomeViewController {
             //maybe should put rootviewcontroller assignment here.
             navigationController?.pushViewController(vc, animated: true)
         }
- 
-
+ */
+        /*
+        UserDefaults.standard.set(true, forKey: "status")
+        Switcher.updateRootVC()
+*/
     }
     
     func validateFields() -> String? {

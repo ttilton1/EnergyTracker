@@ -63,8 +63,14 @@ class HomeViewController: UITableViewController {
         return cell
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if choices[indexPath.row] == "Enter a meal" {
         if let vc = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.mealViewController) as? MealViewController {
             navigationController?.pushViewController(vc, animated: true)
+        }
+        } else {
+            if let vc = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.activityViewController) as? ActivityDataViewController {
+                navigationController?.pushViewController(vc, animated: true)
+            }
         }
         //storyboard might be present or nil, so use ? - optional chaining
         //instantiateViewController might fail if not "Detail"

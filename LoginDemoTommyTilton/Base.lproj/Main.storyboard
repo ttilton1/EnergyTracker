@@ -239,6 +239,35 @@
             </objects>
             <point key="canvasLocation" x="6549.275362318841" y="774.77678571428567"/>
         </scene>
+        <!--Activity Data View Controller-->
+        <scene sceneID="A2k-e4-Bmr">
+            <objects>
+                <viewController storyboardIdentifier="ActivityVC" id="qbq-Ej-Ie4" customClass="ActivityDataViewController" customModule="PontzerDemoTommyTilton" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VOW-qz-0Ug">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Activity Data" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mWG-cS-1hO">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="GAx-hl-jsU" firstAttribute="trailing" secondItem="mWG-cS-1hO" secondAttribute="trailing" id="0bT-iO-aUw"/>
+                            <constraint firstItem="GAx-hl-jsU" firstAttribute="bottom" secondItem="mWG-cS-1hO" secondAttribute="bottom" id="eHe-DV-vej"/>
+                            <constraint firstItem="mWG-cS-1hO" firstAttribute="leading" secondItem="GAx-hl-jsU" secondAttribute="leading" id="xlp-M6-CEp"/>
+                            <constraint firstItem="mWG-cS-1hO" firstAttribute="top" secondItem="GAx-hl-jsU" secondAttribute="top" id="yCv-JZ-K5u"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="GAx-hl-jsU"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fQD-Tt-sLv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7459" y="1228"/>
+        </scene>
         <!--Meal View Controller-->
         <scene sceneID="IrC-7h-QT1">
             <objects>

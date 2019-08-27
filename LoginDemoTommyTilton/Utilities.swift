@@ -14,7 +14,6 @@ class Utilities {
     static func styleTextField(_ textfield:UITextField) {
         
         // Create the bottom line
-        let borderWidth:CGFloat = 2.0
         let bottomLine = CALayer()
         
         bottomLine.frame = CGRect(x: 0, y: textfield.frame.height - 2, width: textfield.frame.width - 40, height: 2)

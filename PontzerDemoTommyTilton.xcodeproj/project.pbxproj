@@ -23,6 +23,7 @@
 		BAD0D2C02314388000F96108 /* MealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD0D2BF2314388000F96108 /* MealViewController.swift */; };
 		BAD0D2C22314F40F00F96108 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAD0D2C12314F40F00F96108 /* HealthKit.framework */; };
 		BAD0D2C52314F76C00F96108 /* ActivityDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD0D2C42314F76C00F96108 /* ActivityDataViewController.swift */; };
+		BAD0D2C723159E9800F96108 /* HealthKitAssistantSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD0D2C623159E9800F96108 /* HealthKitAssistantSetup.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,7 @@
 		BAD0D2C12314F40F00F96108 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		BAD0D2C32314F40F00F96108 /* PontzerDemoTommyTilton.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PontzerDemoTommyTilton.entitlements; sourceTree = "<group>"; };
 		BAD0D2C42314F76C00F96108 /* ActivityDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDataViewController.swift; sourceTree = "<group>"; };
+		BAD0D2C623159E9800F96108 /* HealthKitAssistantSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitAssistantSetup.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				BA1557CD231220E500DFAFA1 /* Info.plist */,
 				BAD0D2B823136D8F00F96108 /* Constants.swift */,
 				BAD0D2BA23136DC100F96108 /* Utilities.swift */,
+				BAD0D2C623159E9800F96108 /* HealthKitAssistantSetup.swift */,
 			);
 			path = LoginDemoTommyTilton;
 			sourceTree = "<group>";
@@ -164,6 +167,9 @@
 					BA1557BD231220E300DFAFA1 = {
 						CreatedOnToolsVersion = 10.2.1;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
 							com.apple.HealthKit = {
 								enabled = 1;
 							};
@@ -252,6 +258,7 @@
 			files = (
 				BA1557D82312220E00DFAFA1 /* HomeViewController.swift in Sources */,
 				BAD0D2BE2314315400F96108 /* WelcomeViewController.swift in Sources */,
+				BAD0D2C723159E9800F96108 /* HealthKitAssistantSetup.swift in Sources */,
 				BA1557D6231221DA00DFAFA1 /* LoginViewController.swift in Sources */,
 				BAD0D2BB23136DC100F96108 /* Utilities.swift in Sources */,
 				BAD0D2C52314F76C00F96108 /* ActivityDataViewController.swift in Sources */,

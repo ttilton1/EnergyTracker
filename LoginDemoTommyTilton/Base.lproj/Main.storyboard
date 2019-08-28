@@ -247,22 +247,42 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Activity Data" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mWG-cS-1hO">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="iBe-bH-xiL">
+                                <rect key="frame" x="40" y="84" width="334" height="100"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please Authorize Activity Data" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mWG-cS-1hO">
+                                        <rect key="frame" x="0.0" y="0.0" width="334" height="40"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IzA-vw-ElQ">
+                                        <rect key="frame" x="0.0" y="60" width="334" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="hoJ-3Q-egs"/>
+                                        </constraints>
+                                        <state key="normal" title="Authorize Activity Data"/>
+                                        <connections>
+                                            <action selector="authorizePressed:" destination="qbq-Ej-Ie4" eventType="touchUpInside" id="wqF-Me-X2U"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="mWG-cS-1hO" firstAttribute="height" secondItem="IzA-vw-ElQ" secondAttribute="height" id="g6X-UK-XaA"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="GAx-hl-jsU" firstAttribute="trailing" secondItem="mWG-cS-1hO" secondAttribute="trailing" id="0bT-iO-aUw"/>
-                            <constraint firstItem="GAx-hl-jsU" firstAttribute="bottom" secondItem="mWG-cS-1hO" secondAttribute="bottom" id="eHe-DV-vej"/>
-                            <constraint firstItem="mWG-cS-1hO" firstAttribute="leading" secondItem="GAx-hl-jsU" secondAttribute="leading" id="xlp-M6-CEp"/>
-                            <constraint firstItem="mWG-cS-1hO" firstAttribute="top" secondItem="GAx-hl-jsU" secondAttribute="top" id="yCv-JZ-K5u"/>
+                            <constraint firstItem="iBe-bH-xiL" firstAttribute="top" secondItem="GAx-hl-jsU" secondAttribute="top" constant="40" id="Glt-hR-TQh"/>
+                            <constraint firstItem="iBe-bH-xiL" firstAttribute="leading" secondItem="GAx-hl-jsU" secondAttribute="leading" constant="40" id="WFr-1v-quW"/>
+                            <constraint firstItem="GAx-hl-jsU" firstAttribute="trailing" secondItem="iBe-bH-xiL" secondAttribute="trailing" constant="40" id="neD-i8-7Vz"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="GAx-hl-jsU"/>
                     </view>
+                    <connections>
+                        <outlet property="authorizeHealthData" destination="IzA-vw-ElQ" id="Nsw-1m-R34"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fQD-Tt-sLv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

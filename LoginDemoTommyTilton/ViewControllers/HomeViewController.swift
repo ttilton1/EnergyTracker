@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseAuth
 import Firebase
+import HealthKit
 
 class HomeViewController: UITableViewController {
     
@@ -30,7 +31,36 @@ class HomeViewController: UITableViewController {
         let signOut = UIBarButtonItem(title: "logout", style: .done, target: self, action: #selector(logout))
         toolbarItems = [spacer, signOut] //array with flex space and reset button, tooolbarItems comes
         navigationController?.isToolbarHidden = false //toolbar shownr
-    }
+        
+        //Authorize permission for healthkit
+
+
+        /*
+        //Activity Data
+        if HKHealthStore.isHealthDataAvailable() {
+            let healthStore = HKHealthStore()
+            let allTypes = Set([HKObjectType.workoutType(),
+                                HKObjectType.quantityType(forIdentifier: .activeEnergyBurned)!,
+                                HKObjectType.quantityType(forIdentifier: .distanceWalkingRunning)!,
+                                HKObjectType.quantityType(forIdentifier: .heartRate)!])
+            
+            healthStore.requestAuthorization(toShare: nil, read: allTypes) { (success, error) in
+                if !success {
+                    //handle error
+                    let ac = UIAlertController(title: "No activity data allowed", message: nil, preferredStyle: .actionSheet)
+                    ac.addAction(UIAlertAction(title: "Continue", style: .cancel))
+                    self.present(ac, animated: true)
+                    
+                }
+            }
+        } else {
+            let ac = UIAlertController(title: "Healthkit not available on device", message: nil, preferredStyle: .actionSheet)
+            ac.addAction(UIAlertAction(title: "Continue", style: .cancel))
+            self.present(ac, animated: true)
+        }
+        */
+        
+    } //End viewDidLoad()
     
     @objc func logout() {
         let firebaseAuth = Auth.auth()

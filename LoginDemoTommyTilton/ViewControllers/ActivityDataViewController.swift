@@ -9,22 +9,39 @@
 import UIKit
 
 class ActivityDataViewController: UIViewController {
-
+    
+    @IBOutlet weak var authorizeHealthData: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        Utilities.styleFilledButton(authorizeHealthData)
+        
 
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    //IB Action
+    @IBAction func authorizePressed(_ sender: Any) {
+        HealthKitSetupAssistant.authorizeHealthKit { (authorized, error) in
+            
+            guard authorized else {
+                
+                let baseMessage = "HealthKit Authorization Failed"
+                
+                if let error = error {
+                    print("\(baseMessage). Reason: \(error.localizedDescription)")
+                } else {
+                    print(baseMessage)
+                }
+                
+                return
+            }
+            
+            print("HealthKit Successfully Authorized.")
+        }
     }
-    */
+    
+
+
 
 }

@@ -13,7 +13,7 @@ import HealthKit
 
 class HomeViewController: UITableViewController {
     
-    var choices = ["Enter a meal", "Activity Data"] //left off here
+    var choices = ["Enter a meal", "Activity Data", "Meal History"] //left off here
     
     
     override func viewDidLoad() {
@@ -108,8 +108,22 @@ class HomeViewController: UITableViewController {
         //if statement guarentee in safestate before steps taken
         
     }
+  /*
+    func getStepsData() {
+        
+        // I am sendng steps to my server thats why using this variable
+        //var stepsToSend = 0
+        /*
+        ProfileDataStore.getTodaysSteps({ (stepRetrieved) in
+            stepsToSend =  Int(stepRetrieved)
+        })
+ */     var steps: Double
+        self.getTodaysSteps(){ (result) in
+        }
+        
+    }
     
-    
+   */
     
     
     

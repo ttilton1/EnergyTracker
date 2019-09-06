@@ -16,6 +16,8 @@
 		BA1557D4231221BB00DFAFA1 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1557D3231221BB00DFAFA1 /* SignUpViewController.swift */; };
 		BA1557D6231221DA00DFAFA1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1557D5231221DA00DFAFA1 /* LoginViewController.swift */; };
 		BA1557D82312220E00DFAFA1 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1557D72312220E00DFAFA1 /* HomeViewController.swift */; };
+		BA4749172322C9F600CA1C33 /* UITextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4749162322C9F600CA1C33 /* UITextField+Extensions.swift */; };
+		BA47491A2322D43100CA1C33 /* DisplayMealTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4749192322D43100CA1C33 /* DisplayMealTableViewController.swift */; };
 		BAD0D2B72313191600F96108 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BAD0D2B62313191600F96108 /* GoogleService-Info.plist */; };
 		BAD0D2B923136D8F00F96108 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD0D2B823136D8F00F96108 /* Constants.swift */; };
 		BAD0D2BB23136DC100F96108 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD0D2BA23136DC100F96108 /* Utilities.swift */; };
@@ -24,6 +26,7 @@
 		BAD0D2C22314F40F00F96108 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAD0D2C12314F40F00F96108 /* HealthKit.framework */; };
 		BAD0D2C52314F76C00F96108 /* ActivityDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD0D2C42314F76C00F96108 /* ActivityDataViewController.swift */; };
 		BAD0D2C723159E9800F96108 /* HealthKitAssistantSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD0D2C623159E9800F96108 /* HealthKitAssistantSetup.swift */; };
+		BAD0D2C923172A5400F96108 /* ProfileDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD0D2C823172A5400F96108 /* ProfileDataStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +43,8 @@
 		BA1557D3231221BB00DFAFA1 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		BA1557D5231221DA00DFAFA1 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BA1557D72312220E00DFAFA1 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		BA4749162322C9F600CA1C33 /* UITextField+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extensions.swift"; sourceTree = "<group>"; };
+		BA4749192322D43100CA1C33 /* DisplayMealTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayMealTableViewController.swift; sourceTree = "<group>"; };
 		BAD0D2B62313191600F96108 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BAD0D2B823136D8F00F96108 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BAD0D2BA23136DC100F96108 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
@@ -49,6 +54,7 @@
 		BAD0D2C32314F40F00F96108 /* PontzerDemoTommyTilton.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PontzerDemoTommyTilton.entitlements; sourceTree = "<group>"; };
 		BAD0D2C42314F76C00F96108 /* ActivityDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDataViewController.swift; sourceTree = "<group>"; };
 		BAD0D2C623159E9800F96108 /* HealthKitAssistantSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitAssistantSetup.swift; sourceTree = "<group>"; };
+		BAD0D2C823172A5400F96108 /* ProfileDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDataStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,16 +101,16 @@
 		BA1557C0231220E300DFAFA1 /* LoginDemoTommyTilton */ = {
 			isa = PBXGroup;
 			children = (
+				BAAB6B242322DA1900C3660B /* Storyboard */,
+				BA4749182322D36B00CA1C33 /* Health */,
 				BA1557D92312222300DFAFA1 /* ViewControllers */,
 				BA1557C1231220E300DFAFA1 /* AppDelegate.swift */,
-				BA1557C5231220E300DFAFA1 /* Main.storyboard */,
 				BA1557C8231220E500DFAFA1 /* Assets.xcassets */,
-				BA1557CA231220E500DFAFA1 /* LaunchScreen.storyboard */,
 				BAD0D2B62313191600F96108 /* GoogleService-Info.plist */,
 				BA1557CD231220E500DFAFA1 /* Info.plist */,
 				BAD0D2B823136D8F00F96108 /* Constants.swift */,
 				BAD0D2BA23136DC100F96108 /* Utilities.swift */,
-				BAD0D2C623159E9800F96108 /* HealthKitAssistantSetup.swift */,
+				BA4749162322C9F600CA1C33 /* UITextField+Extensions.swift */,
 			);
 			path = LoginDemoTommyTilton;
 			sourceTree = "<group>";
@@ -112,15 +118,34 @@
 		BA1557D92312222300DFAFA1 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				BAD0D2BD2314315400F96108 /* WelcomeViewController.swift */,
 				BA1557C3231220E300DFAFA1 /* ViewController.swift */,
 				BA1557D3231221BB00DFAFA1 /* SignUpViewController.swift */,
 				BA1557D5231221DA00DFAFA1 /* LoginViewController.swift */,
 				BA1557D72312220E00DFAFA1 /* HomeViewController.swift */,
-				BAD0D2BD2314315400F96108 /* WelcomeViewController.swift */,
 				BAD0D2BF2314388000F96108 /* MealViewController.swift */,
 				BAD0D2C42314F76C00F96108 /* ActivityDataViewController.swift */,
+				BA4749192322D43100CA1C33 /* DisplayMealTableViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		BA4749182322D36B00CA1C33 /* Health */ = {
+			isa = PBXGroup;
+			children = (
+				BAD0D2C623159E9800F96108 /* HealthKitAssistantSetup.swift */,
+				BAD0D2C823172A5400F96108 /* ProfileDataStore.swift */,
+			);
+			path = Health;
+			sourceTree = "<group>";
+		};
+		BAAB6B242322DA1900C3660B /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				BA1557C5231220E300DFAFA1 /* Main.storyboard */,
+				BA1557CA231220E500DFAFA1 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboard;
 			sourceTree = "<group>";
 		};
 		CA461FCF2A5BC77F0CD7E775 /* Frameworks */ = {
@@ -257,12 +282,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA1557D82312220E00DFAFA1 /* HomeViewController.swift in Sources */,
+				BAD0D2C923172A5400F96108 /* ProfileDataStore.swift in Sources */,
 				BAD0D2BE2314315400F96108 /* WelcomeViewController.swift in Sources */,
 				BAD0D2C723159E9800F96108 /* HealthKitAssistantSetup.swift in Sources */,
 				BA1557D6231221DA00DFAFA1 /* LoginViewController.swift in Sources */,
 				BAD0D2BB23136DC100F96108 /* Utilities.swift in Sources */,
 				BAD0D2C52314F76C00F96108 /* ActivityDataViewController.swift in Sources */,
+				BA4749172322C9F600CA1C33 /* UITextField+Extensions.swift in Sources */,
 				BA1557D4231221BB00DFAFA1 /* SignUpViewController.swift in Sources */,
+				BA47491A2322D43100CA1C33 /* DisplayMealTableViewController.swift in Sources */,
 				BA1557C4231220E300DFAFA1 /* ViewController.swift in Sources */,
 				BA1557C2231220E300DFAFA1 /* AppDelegate.swift in Sources */,
 				BAD0D2B923136D8F00F96108 /* Constants.swift in Sources */,

@@ -22,6 +22,10 @@ class ActivityDataViewController: UIViewController {
     
     //IB Action
     @IBAction func authorizePressed(_ sender: Any) {
+        authorizeHealthKit()
+    }
+    
+    private func authorizeHealthKit() {
         HealthKitSetupAssistant.authorizeHealthKit { (authorized, error) in
             
             guard authorized else {
@@ -40,6 +44,7 @@ class ActivityDataViewController: UIViewController {
             print("HealthKit Successfully Authorized.")
         }
     }
+    
     
 
 

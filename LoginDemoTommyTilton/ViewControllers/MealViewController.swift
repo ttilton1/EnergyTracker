@@ -13,10 +13,13 @@ import FirebaseAuth
 
 class MealViewController: UIViewController, UITextFieldDelegate {
 
+    var step: Double = 0.0
     //IBOUTLETS
     @IBOutlet weak var locationText: UITextField!
     @IBOutlet weak var foodContentText: UITextField!
     @IBOutlet weak var mealSizeText: UITextField!
+    @IBOutlet weak var dateTextField: UITextField!
+    
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var errorLabel: UILabel!
 
@@ -46,13 +49,16 @@ class MealViewController: UIViewController, UITextFieldDelegate {
         Utilities.styleTextField(locationText)
         Utilities.styleTextField(foodContentText)
         Utilities.styleTextField(mealSizeText)
+        Utilities.styleTextField(dateTextField)
         Utilities.styleFilledButton(submitButton)
+        
     }
     
     func validateFields() -> String? {
         if locationText.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
             foodContentText.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
-            mealSizeText.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
+            mealSizeText.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
+            dateTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
             return "Please fill in all fields."
         }
         return nil
@@ -62,6 +68,37 @@ class MealViewController: UIViewController, UITextFieldDelegate {
         errorLabel.text = message
         errorLabel.alpha = 1
     }
+    
+    @IBAction func textFieldEditing(_ sender: UITextField) {
+        //autopopulate textfield
+  /*      let toolBar = UIToolbar().ToolbarPiker(mySelect: #selector(MealViewController.dismissPicker))
+        
+        dateTextField.inputAccessoryView = toolBar
+  */
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = DateFormatter.Style.medium
+        dateFormatter.timeStyle = DateFormatter.Style.medium
+        dateTextField.text = dateFormatter.string(from: Date())
+        //setup datepicker
+        let datePickerView:UIDatePicker = UIDatePicker()
+        datePickerView.datePickerMode = UIDatePicker.Mode.dateAndTime
+        sender.inputView = datePickerView
+        datePickerView.addTarget(self, action: #selector(MealViewController.datePickerValueChanged), for: UIControl.Event.valueChanged)
+    }
+    
+    @objc func datePickerValueChanged(sender:UIDatePicker) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = DateFormatter.Style.medium
+        dateFormatter.timeStyle = DateFormatter.Style.medium
+        dateTextField.text = dateFormatter.string(from: sender.date)
+    }
+    /*
+    @objc func dismissPicker() {
+        
+        view.endEditing(true)
+        
+    }
+    */
     
     @IBAction func submitPressed(_ sender: Any) {
         let error = validateFields()
@@ -77,14 +114,15 @@ class MealViewController: UIViewController, UITextFieldDelegate {
             let mealSize = mealSizeText.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             let timestamp = NSDate().timeIntervalSince1970
             let userID = Auth.auth().currentUser!.uid
-            let stringDate = getCurrentStringDate()
+//            let stringDate = getCurrentStringDate()
+            let dateEaten = dateTextField.text!
             
             //instantiate Database data array
-            let docData: [String: Any] = ["food content":foodContent, "location":location, "meal size":mealSize, "time":timestamp]
+            let docData: [String: Any] = ["food content":foodContent, "location":location, "meal size":mealSize, "time":dateEaten, "time":timestamp]
             
             //User was created successfully, now store first and last name in new "document" in firestore
             let db = Firestore.firestore()
-        db.collection("users").document(userID).collection("Meals").document(stringDate).setData(docData)
+            db.collection("users").document(userID).collection("Meals").document(dateEaten).setData(docData)
             /*//Old code
             db.collection("users").document(userID).collection("Meals").addDocument(data: ["food content":foodContent, "location":location, "meal size":mealSize, "time":timestamp]) { (error) in
                     if error != nil {
@@ -94,6 +132,15 @@ class MealViewController: UIViewController, UITextFieldDelegate {
                     }
                 */
                 //transition to homescreen
+            ProfileDataStore.getTodaysSteps { (final) in
+                self.step = final
+                let doc: [String: Any] = ["steps":final]
+                let db = Firestore.firestore()
+                let stringYesterday = self.getYesterdayStringDate()
+            db.collection("users").document(userID).collection("Steps").document(stringYesterday).setData(doc)
+            }
+    
+    
                 self.transitionToHome()
                     
                 }
@@ -120,11 +167,33 @@ class MealViewController: UIViewController, UITextFieldDelegate {
         let stringDate = formatter.string(from: yourDate!)
         return stringDate
     }
+    
+    func getYesterdayStringDate() -> String {
+        let startOfYesterday = Calendar.current.startOfDay(for: Calendar.current.date(byAdding: .day, value: -1, to: Date())!)
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let myString = formatter.string(from: startOfYesterday) // string purpose I add here
+        // convert your string to date
+        let yourDate = formatter.date(from: myString)
+        //then again set the date format whhich type of output you need
+        //   formatter.dateFormat = "dd-MMM-yyyy"
+        // again convert your date to string
+        let stringDate = formatter.string(from: yourDate!)
+        return stringDate
+    }
     //textfield delegate
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return false
     }
+/*
+    func getSteps() {
+        ProfileDataStore.getTodaysSteps { (final) in
+            self.step = final
+            self.step = 1.0
+        }
+    }
+ */
     
 
 }

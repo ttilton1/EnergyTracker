@@ -10,10 +10,11 @@ import UIKit
 import FirebaseFirestore
 import Firebase
 import FirebaseAuth
+import CoreData
 
 class MealViewController: UIViewController, UITextFieldDelegate {
-
-    var step: Double = 0.0
+    
+    
     //IBOUTLETS
     @IBOutlet weak var locationText: UITextField!
     @IBOutlet weak var foodContentText: UITextField!
@@ -23,11 +24,29 @@ class MealViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var errorLabel: UILabel!
 
+    //variables
+    var step: Double = 0.0
+    //hacking with swift coredata
+    var container: NSPersistentContainer!
+    var mealDataPoints = [MealDataPoint]()
     
-    var createdAt: Double = 0.0
+    /*
+    //persistence manager for coredata to save meal
+    let persistenceManager: PersistenceManager
+    init(persistenceManager: PersistenceManager){
+        self.persistenceManager = persistenceManager
+        super.init(nibName: nil, bundle: nil)
+
+    }
     
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+ */
     
+
     
+    //viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpElements()
@@ -35,11 +54,58 @@ class MealViewController: UIViewController, UITextFieldDelegate {
         self.locationText.delegate = self
         self.foodContentText.delegate = self
         self.mealSizeText.delegate = self
-
-
-       
+        //coredata persistence
+        //persistenceManager.
+        
+        //hackingwihtswift coredata
+        container = NSPersistentContainer(name: "PontzerDemoTommyTilton")
+        
+        container.loadPersistentStores { storeDescription, error in
+            self.container.viewContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
+            
+            if let error = error {
+                print("Unresolved error \(error)")
+            }
+        }
+        
+        /* probable delete this
+        let mealDataPoint = MealDataPoint()
+        mealDataPoint.dateEaten = "Woo"
+        mealDataPoint.foodContent = "http://www.example.com"
+        mealDataPoint.location = "Place"
+        mealDataPoint.mealSize = "l"
+        mealDataPoint.timeEntered = "time"
+    */
+        //hackingwithswiftend
     }
     
+    
+    //hackingwithswift
+    func saveContext() {
+        if container.viewContext.hasChanges {
+            do {
+                try container.viewContext.save()
+            } catch {
+                print("An error occurred while saving: \(error)")
+            }
+        }
+    }
+    /*
+    func loadSavedData() {
+        let request = MealDataPoint.createFetchRequest()
+        let sort = NSSortDescriptor(key: "dateEaten", ascending: false)
+        request.sortDescriptors = [sort]
+        
+        do {
+            mealDataPoints = try container.viewContext.fetch(request)
+            print("Got \(mealDataPoints.count) commits")
+          //  tableView.reloadData()
+        } catch {
+            print("Fetch failed")
+        }
+    }
+    //end hacking with swift
+    */
     func setUpElements() {
         
         //hide error label
@@ -76,8 +142,9 @@ class MealViewController: UIViewController, UITextFieldDelegate {
         dateTextField.inputAccessoryView = toolBar
   */
         let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = DateFormatter.Style.medium
-        dateFormatter.timeStyle = DateFormatter.Style.medium
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+    //    dateFormatter.dateStyle = DateFormatter.Style.medium
+   //     dateFormatter.timeStyle = DateFormatter.Style.medium
         dateTextField.text = dateFormatter.string(from: Date())
         //setup datepicker
         let datePickerView:UIDatePicker = UIDatePicker()
@@ -86,11 +153,11 @@ class MealViewController: UIViewController, UITextFieldDelegate {
         datePickerView.addTarget(self, action: #selector(MealViewController.datePickerValueChanged), for: UIControl.Event.valueChanged)
     }
     
-    @objc func datePickerValueChanged(sender:UIDatePicker) {
+    @objc func datePickerValueChanged(sender:UIDatePicker){
         let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = DateFormatter.Style.medium
-        dateFormatter.timeStyle = DateFormatter.Style.medium
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         dateTextField.text = dateFormatter.string(from: sender.date)
+        //get it in version we want to store for organization
     }
     /*
     @objc func dismissPicker() {
@@ -112,17 +179,36 @@ class MealViewController: UIViewController, UITextFieldDelegate {
             let location = locationText.text!.trimmingCharacters(in: .newlines)
             let foodContent = foodContentText.text!.trimmingCharacters(in: .newlines)
             let mealSize = mealSizeText.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-            let timestamp = NSDate().timeIntervalSince1970
+            let timeEntered = getCurrentStringDate()
+                //NSDate().timeIntervalSince1970
             let userID = Auth.auth().currentUser!.uid
+
 //            let stringDate = getCurrentStringDate()
             let dateEaten = dateTextField.text!
+   
+            //instantiate meal object
+            let meal1 = MealObject(location: location, foodContent: foodContent, mealSize: mealSize, dateEaten: dateEaten, timeEntered: timeEntered)
             
             //instantiate Database data array
-            let docData: [String: Any] = ["food content":foodContent, "location":location, "meal size":mealSize, "time":dateEaten, "time":timestamp]
+            let docData = meal1.returnDocData()
             
             //User was created successfully, now store first and last name in new "document" in firestore
             let db = Firestore.firestore()
-            db.collection("users").document(userID).collection("Meals").document(dateEaten).setData(docData)
+            db.collection("users").document(userID).collection("Meals").document(dateEaten).setData(docData) { (error) in
+                    if error != nil {
+                        self.showError("Error in saving user data")
+                    }
+                
+                }
+            //save Data locally to Core Data
+            let mealDataPoint = MealDataPoint(context: self.container.viewContext)
+            mealDataPoint.dateEaten = meal1.dateEaten
+            mealDataPoint.foodContent = meal1.foodContent
+            mealDataPoint.location = meal1.location
+            mealDataPoint.mealSize = meal1.mealSize
+            mealDataPoint.timeEntered = meal1.timeEntered
+            self.saveContext()
+        
             /*//Old code
             db.collection("users").document(userID).collection("Meals").addDocument(data: ["food content":foodContent, "location":location, "meal size":mealSize, "time":timestamp]) { (error) in
                     if error != nil {
@@ -148,6 +234,7 @@ class MealViewController: UIViewController, UITextFieldDelegate {
         
     } //end submitPressed
     
+    
     func transitionToHome() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.homeViewController) as! UITableViewController
@@ -168,10 +255,15 @@ class MealViewController: UIViewController, UITextFieldDelegate {
         return stringDate
     }
     
+    
     func getYesterdayStringDate() -> String {
+        
         let startOfYesterday = Calendar.current.startOfDay(for: Calendar.current.date(byAdding: .day, value: -1, to: Date())!)
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        
+
+        
         let myString = formatter.string(from: startOfYesterday) // string purpose I add here
         // convert your string to date
         let yourDate = formatter.date(from: myString)

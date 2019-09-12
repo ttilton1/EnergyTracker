@@ -18,6 +18,10 @@
 		BA1557D82312220E00DFAFA1 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1557D72312220E00DFAFA1 /* HomeViewController.swift */; };
 		BA4749172322C9F600CA1C33 /* UITextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4749162322C9F600CA1C33 /* UITextField+Extensions.swift */; };
 		BA47491A2322D43100CA1C33 /* DisplayMealTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4749192322D43100CA1C33 /* DisplayMealTableViewController.swift */; };
+		BAAB6B282322DCED00C3660B /* MealObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAB6B272322DCED00C3660B /* MealObject.swift */; };
+		BAAB6B4C232952ED00C3660B /* PontzerDemoTommyTilton.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BAAB6B4A232952ED00C3660B /* PontzerDemoTommyTilton.xcdatamodeld */; };
+		BAAB6B4F232956C900C3660B /* MealDataPoint+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAB6B4D232956C900C3660B /* MealDataPoint+CoreDataClass.swift */; };
+		BAAB6B50232956C900C3660B /* MealDataPoint+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAB6B4E232956C900C3660B /* MealDataPoint+CoreDataProperties.swift */; };
 		BAD0D2B72313191600F96108 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BAD0D2B62313191600F96108 /* GoogleService-Info.plist */; };
 		BAD0D2B923136D8F00F96108 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD0D2B823136D8F00F96108 /* Constants.swift */; };
 		BAD0D2BB23136DC100F96108 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD0D2BA23136DC100F96108 /* Utilities.swift */; };
@@ -45,6 +49,10 @@
 		BA1557D72312220E00DFAFA1 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		BA4749162322C9F600CA1C33 /* UITextField+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extensions.swift"; sourceTree = "<group>"; };
 		BA4749192322D43100CA1C33 /* DisplayMealTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayMealTableViewController.swift; sourceTree = "<group>"; };
+		BAAB6B272322DCED00C3660B /* MealObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealObject.swift; sourceTree = "<group>"; };
+		BAAB6B4B232952ED00C3660B /* PontzerDemoTommyTilton.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PontzerDemoTommyTilton.xcdatamodel; sourceTree = "<group>"; };
+		BAAB6B4D232956C900C3660B /* MealDataPoint+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MealDataPoint+CoreDataClass.swift"; sourceTree = "<group>"; };
+		BAAB6B4E232956C900C3660B /* MealDataPoint+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MealDataPoint+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		BAD0D2B62313191600F96108 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BAD0D2B823136D8F00F96108 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BAD0D2BA23136DC100F96108 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
@@ -101,16 +109,20 @@
 		BA1557C0231220E300DFAFA1 /* LoginDemoTommyTilton */ = {
 			isa = PBXGroup;
 			children = (
+				BAAB6B4D232956C900C3660B /* MealDataPoint+CoreDataClass.swift */,
+				BAAB6B4E232956C900C3660B /* MealDataPoint+CoreDataProperties.swift */,
+				BAAB6B4A232952ED00C3660B /* PontzerDemoTommyTilton.xcdatamodeld */,
+				BA1557C1231220E300DFAFA1 /* AppDelegate.swift */,
 				BAAB6B242322DA1900C3660B /* Storyboard */,
 				BA4749182322D36B00CA1C33 /* Health */,
 				BA1557D92312222300DFAFA1 /* ViewControllers */,
-				BA1557C1231220E300DFAFA1 /* AppDelegate.swift */,
 				BA1557C8231220E500DFAFA1 /* Assets.xcassets */,
 				BAD0D2B62313191600F96108 /* GoogleService-Info.plist */,
 				BA1557CD231220E500DFAFA1 /* Info.plist */,
 				BAD0D2B823136D8F00F96108 /* Constants.swift */,
 				BAD0D2BA23136DC100F96108 /* Utilities.swift */,
 				BA4749162322C9F600CA1C33 /* UITextField+Extensions.swift */,
+				BAAB6B272322DCED00C3660B /* MealObject.swift */,
 			);
 			path = LoginDemoTommyTilton;
 			sourceTree = "<group>";
@@ -283,11 +295,15 @@
 			files = (
 				BA1557D82312220E00DFAFA1 /* HomeViewController.swift in Sources */,
 				BAD0D2C923172A5400F96108 /* ProfileDataStore.swift in Sources */,
+				BAAB6B4C232952ED00C3660B /* PontzerDemoTommyTilton.xcdatamodeld in Sources */,
+				BAAB6B4F232956C900C3660B /* MealDataPoint+CoreDataClass.swift in Sources */,
 				BAD0D2BE2314315400F96108 /* WelcomeViewController.swift in Sources */,
+				BAAB6B50232956C900C3660B /* MealDataPoint+CoreDataProperties.swift in Sources */,
 				BAD0D2C723159E9800F96108 /* HealthKitAssistantSetup.swift in Sources */,
 				BA1557D6231221DA00DFAFA1 /* LoginViewController.swift in Sources */,
 				BAD0D2BB23136DC100F96108 /* Utilities.swift in Sources */,
 				BAD0D2C52314F76C00F96108 /* ActivityDataViewController.swift in Sources */,
+				BAAB6B282322DCED00C3660B /* MealObject.swift in Sources */,
 				BA4749172322C9F600CA1C33 /* UITextField+Extensions.swift in Sources */,
 				BA1557D4231221BB00DFAFA1 /* SignUpViewController.swift in Sources */,
 				BA47491A2322D43100CA1C33 /* DisplayMealTableViewController.swift in Sources */,
@@ -498,6 +514,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		BAAB6B4A232952ED00C3660B /* PontzerDemoTommyTilton.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				BAAB6B4B232952ED00C3660B /* PontzerDemoTommyTilton.xcdatamodel */,
+			);
+			currentVersion = BAAB6B4B232952ED00C3660B /* PontzerDemoTommyTilton.xcdatamodel */;
+			path = PontzerDemoTommyTilton.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = BA1557B6231220E300DFAFA1 /* Project object */;
 }

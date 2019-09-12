@@ -7,45 +7,91 @@
 //
 
 import UIKit
-import FirebaseAuth
+import FirebaseFirestore
 import Firebase
+import FirebaseAuth
+import CoreData
 
 class DisplayMealTableViewController: UITableViewController {
-
+    //Firebase
+    /*
+    var Meals = [MealObject]()
+    */
+    //coreData - hackingwithswift
+    var container: NSPersistentContainer!
+    var mealDataPoints = [MealDataPoint]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.prefersLargeTitles = true //large title
         title = "Meal History"
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+        
+        //CoreData hacking with swift
+        container = NSPersistentContainer(name: "PontzerDemoTommyTilton")
+        
+        container.loadPersistentStores { storeDescription, error in
+            self.container.viewContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
+            
+            if let error = error {
+                print("Unresolved error \(error)")
+            }
+        }
+        loadSavedData()
+        //Firebase code
+        /*
+        print("000000&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
+        Meals = loadMeals(meals: Meals)
+        print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+        for meal1 in Meals {
+        print("******************************************")
+        print("meal => \(meal1.returnDocData())")
+        print("******************************************")
+        }
+        print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+*/
+        
 
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return mealDataPoints.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "itemChoice", for: indexPath)
-        
+        var cell = tableView.dequeueReusableCell(withIdentifier: "mealDisp", for: indexPath)
+        if cell.detailTextLabel == nil {
+            cell = UITableViewCell(style: .subtitle, reuseIdentifier: "mealDisp")
+        }
+        let mealDataPoint = mealDataPoints[indexPath.row]
+        cell.textLabel!.text = mealDataPoint.dateEaten
+        cell.detailTextLabel!.text = mealDataPoint.foodContent
 
-        // Configure the cell...
 
         return cell
     }
  
-
+    func loadSavedData() {
+        let request = MealDataPoint.createFetchRequest()
+        let sort = NSSortDescriptor(key: "dateEaten", ascending: false)
+        request.sortDescriptors = [sort]
+        
+        do {
+            mealDataPoints = try container.viewContext.fetch(request)
+            print("Got \(mealDataPoints.count) commits")
+            tableView.reloadData()
+        } catch {
+            print("Fetch failed")
+        }
+    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -90,5 +136,37 @@ class DisplayMealTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    /*
+    func loadMeals(meals: [MealObject]) -> ([MealObject]) {
+        
+        var mealArray: [MealObject] = meals
+        let db = Firestore.firestore()
+        let userID = Auth.auth().currentUser!.uid
+        
+        
+        db.collection("users").document(userID).collection("Meals").getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                 //      print("+++++++++++++++++++++++++++++++++++++++++++")
+                 //      print("\(document.documentID) => \(document.data())")
+                 //       print("******************************************")
+                    var apple = [String: Any]()
+                    apple = document.data()
+                    let meal1 = MealObject()
+                    meal1.setFromDocData(meal: apple)
+                             print("++++++++++++++++++++++++++++++++++++++++++++")
+                                print("meal => \(meal1.returnDocData())")
+                                  print("******************************************")
+                    mealArray.append(meal1)
+                    
+                }
+            }
+        }
+        return mealArray
+    }
+ *///end of function
 
 }

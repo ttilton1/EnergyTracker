@@ -10,6 +10,7 @@ import UIKit
 import FirebaseAuth
 import Firebase
 import HealthKit
+import CoreData
 
 class HomeViewController: UITableViewController {
     
@@ -94,20 +95,28 @@ class HomeViewController: UITableViewController {
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if choices[indexPath.row] == "Enter a meal" {
-        if let vc = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.mealViewController) as? MealViewController {
-            navigationController?.pushViewController(vc, animated: true)
+  //          let va = MealViewController(persistenceManager: PersistenceManager.shared)
+ //           if let vreal = storyboard?.instantiateIni
+            if let vc = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.mealViewController) as? MealViewController {
+                
+                navigationController?.pushViewController(vc, animated: true)
         }
-        } else {
+        } else if choices[indexPath.row] == "Activity Data" {
             if let vc = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.activityViewController) as? ActivityDataViewController {
                 navigationController?.pushViewController(vc, animated: true)
             }
+        } else {
+            if let vc = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.displayMealViewController) as? DisplayMealTableViewController {
+                navigationController?.pushViewController(vc, animated: true)
+            }
+        }
         }
         //storyboard might be present or nil, so use ? - optional chaining
         //instantiateViewController might fail if not "Detail"
         //typecast might fail
         //if statement guarentee in safestate before steps taken
         
-    }
+    
   /*
     func getStepsData() {
         

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14490.99" systemVersion="18G95" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="MealDataPoint" representedClassName=".MealDataPoint" syncable="YES">
+        <attribute name="dateEaten" attributeType="String" syncable="YES"/>
+        <attribute name="foodContent" attributeType="String" syncable="YES"/>
+        <attribute name="location" attributeType="String" syncable="YES"/>
+        <attribute name="mealSize" attributeType="String" syncable="YES"/>
+        <attribute name="timeEntered" attributeType="String" syncable="YES"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="timeEntered"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <elements>
+        <element name="MealDataPoint" positionX="-63" positionY="-18" width="128" height="120"/>
+    </elements>
+</model>

@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import UserNotifications
 
 class WelcomeViewController: UIViewController {
 
@@ -37,7 +38,8 @@ class WelcomeViewController: UIViewController {
     }
     
     func goToSignUpLogIn() {
-  
+        
+       
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.viewController) as UIViewController
         let vc = UINavigationController(rootViewController: controller)
@@ -49,5 +51,9 @@ class WelcomeViewController: UIViewController {
         }
         */
     }
+    
+    
+
+
 
 }

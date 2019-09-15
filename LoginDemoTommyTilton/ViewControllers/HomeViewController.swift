@@ -11,6 +11,7 @@ import FirebaseAuth
 import Firebase
 import HealthKit
 import CoreData
+import UserNotifications
 
 class HomeViewController: UITableViewController {
     
@@ -19,8 +20,14 @@ class HomeViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        registerNotications()
+        /*Hacking with swift notification
         // Do any additional setup after loading the view.
-        
+        registerLocal()
+        scheduleLocal()
+ 
+ */ //end of hacking with swift push notifications
+ 
         navigationController?.navigationBar.prefersLargeTitles = true //large title
         /* //COLOR CHANGING NOT WORKING HERE
  navigationController?.navigationBar.titleTextAttributes =
@@ -33,7 +40,9 @@ class HomeViewController: UITableViewController {
         toolbarItems = [spacer, signOut] //array with flex space and reset button, tooolbarItems comes
         navigationController?.isToolbarHidden = false //toolbar shownr
         
-        //Authorize permission for healthkit
+        //Set up push notification
+
+
 
 
         /*
@@ -63,6 +72,97 @@ class HomeViewController: UITableViewController {
         
     } //End viewDidLoad()
     
+    //registerNotifications 9/13/19
+    func registerNotications() {
+        let manager = LocalNotificationManager()
+        let dateManager = DateManager()
+        dateManager.assignDateComponents()
+        
+        for n in 0 ... 6 {
+            manager.notifications.append(contentsOf: [
+                
+            Notification(id: "reminder-\(1+3*n)", title: "Please enter mood data in Pontzer Metabolism App, Thank you!", datetime: dateManager.notification1[n]),
+            Notification(id: "reminder-\(2+3*n)", title: "Please enter mood data in Pontzer Metabolism App, Thank you!", datetime: dateManager.notification2[n]),
+            Notification(id: "reminder-\(3+3*n)", title: "Please enter mood data in Pontzer Metabolism App, Thank you!", datetime:
+                dateManager.notification3[n]),
+            Notification(id: "MealReminder-\(1+2*n)", title: "Please remember to enter your meals in Pontzer Metabolism App", datetime:
+                dateManager.mealNotification1[n]),
+            Notification(id: "MealReminder-\(2+2*n)", title: "Please remember to enter your meals in Pontzer Metabolism App", datetime:
+                dateManager.mealNotification2[n])
+        ])
+        }
+        
+        manager.schedule()
+    }
+    
+    
+/*
+    //local notifications
+    @objc func registerLocal() {
+        let center = UNUserNotificationCenter.current()
+        
+        center.requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in
+            if granted {
+                print("Yay!")
+            } else {
+                print("D'oh")
+            }
+        }
+    }
+ */
+    //test push
+    
+    /*
+    func schedule()
+    {
+        let center = UNUserNotificationCenter.current()
+        center.getNotificationSettings { settings in
+            switch settings.authorizationStatus {
+            case .notDetermined:
+                self.registerLocal()
+            case .authorized, .provisional:
+                self.scheduleLocal()
+            default:
+                break //Do nothing
+            }
+        }
+    }
+ */
+    /*
+    
+    //left off here
+    @objc func scheduleLocal() {
+        
+        
+        let center = UNUserNotificationCenter.current()
+
+        //__________WHAT DOES THIS LINE BELOW DO___________________
+        center.removeAllPendingNotificationRequests()
+        
+        let content = UNMutableNotificationContent()
+        content.title = "Duke Metabolic's Lab"
+        content.body = "Please enter your mood."
+        content.categoryIdentifier = "alarm"
+        content.userInfo = ["customData": "fizzbuzz"] //this is important for making it work more than once idk why
+        content.sound = UNNotificationSound.default
+        
+        //get random time between 8 and 12.37
+        var randomDate: Double = Double.random(in: 8.00 ..< 12.37)
+        let (wholepart, fractionalPart) = modf(randomDate)
+        
+        
+        var dateComponents = DateComponents()
+        dateComponents.hour = Int(wholepart)
+        dateComponents.minute = Int(fractionalPart*60)
+//        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+
+
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+        center.add(request)
+    }
+ */
+    //
     @objc func logout() {
         let firebaseAuth = Auth.auth()
         do {
@@ -111,6 +211,7 @@ class HomeViewController: UITableViewController {
             }
         }
         }
+ 
         //storyboard might be present or nil, so use ? - optional chaining
         //instantiateViewController might fail if not "Detail"
         //typecast might fail

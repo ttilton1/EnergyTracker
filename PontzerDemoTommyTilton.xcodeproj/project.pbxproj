@@ -18,6 +18,10 @@
 		BA1557D82312220E00DFAFA1 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1557D72312220E00DFAFA1 /* HomeViewController.swift */; };
 		BA4749172322C9F600CA1C33 /* UITextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4749162322C9F600CA1C33 /* UITextField+Extensions.swift */; };
 		BA47491A2322D43100CA1C33 /* DisplayMealTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4749192322D43100CA1C33 /* DisplayMealTableViewController.swift */; };
+		BAA321F6232D784F002E9469 /* LocalNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA321F5232D784F002E9469 /* LocalNotificationManager.swift */; };
+		BAA321F8232D7889002E9469 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA321F7232D7889002E9469 /* Notification.swift */; };
+		BAA321FB232D92B5002E9469 /* NotificationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA321FA232D92B5002E9469 /* NotificationDelegate.swift */; };
+		BAA321FD232D99D1002E9469 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA321FC232D99D1002E9469 /* DateManager.swift */; };
 		BAAB6B282322DCED00C3660B /* MealObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAB6B272322DCED00C3660B /* MealObject.swift */; };
 		BAAB6B4C232952ED00C3660B /* PontzerDemoTommyTilton.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BAAB6B4A232952ED00C3660B /* PontzerDemoTommyTilton.xcdatamodeld */; };
 		BAAB6B4F232956C900C3660B /* MealDataPoint+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAB6B4D232956C900C3660B /* MealDataPoint+CoreDataClass.swift */; };
@@ -49,6 +53,10 @@
 		BA1557D72312220E00DFAFA1 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		BA4749162322C9F600CA1C33 /* UITextField+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extensions.swift"; sourceTree = "<group>"; };
 		BA4749192322D43100CA1C33 /* DisplayMealTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayMealTableViewController.swift; sourceTree = "<group>"; };
+		BAA321F5232D784F002E9469 /* LocalNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationManager.swift; sourceTree = "<group>"; };
+		BAA321F7232D7889002E9469 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
+		BAA321FA232D92B5002E9469 /* NotificationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationDelegate.swift; sourceTree = "<group>"; };
+		BAA321FC232D99D1002E9469 /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
 		BAAB6B272322DCED00C3660B /* MealObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealObject.swift; sourceTree = "<group>"; };
 		BAAB6B4B232952ED00C3660B /* PontzerDemoTommyTilton.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PontzerDemoTommyTilton.xcdatamodel; sourceTree = "<group>"; };
 		BAAB6B4D232956C900C3660B /* MealDataPoint+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MealDataPoint+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -109,6 +117,7 @@
 		BA1557C0231220E300DFAFA1 /* LoginDemoTommyTilton */ = {
 			isa = PBXGroup;
 			children = (
+				BAA321F9232D91FB002E9469 /* UserNotifications */,
 				BAAB6B4D232956C900C3660B /* MealDataPoint+CoreDataClass.swift */,
 				BAAB6B4E232956C900C3660B /* MealDataPoint+CoreDataProperties.swift */,
 				BAAB6B4A232952ED00C3660B /* PontzerDemoTommyTilton.xcdatamodeld */,
@@ -123,6 +132,7 @@
 				BAD0D2BA23136DC100F96108 /* Utilities.swift */,
 				BA4749162322C9F600CA1C33 /* UITextField+Extensions.swift */,
 				BAAB6B272322DCED00C3660B /* MealObject.swift */,
+				BAA321FC232D99D1002E9469 /* DateManager.swift */,
 			);
 			path = LoginDemoTommyTilton;
 			sourceTree = "<group>";
@@ -149,6 +159,16 @@
 				BAD0D2C823172A5400F96108 /* ProfileDataStore.swift */,
 			);
 			path = Health;
+			sourceTree = "<group>";
+		};
+		BAA321F9232D91FB002E9469 /* UserNotifications */ = {
+			isa = PBXGroup;
+			children = (
+				BAA321F7232D7889002E9469 /* Notification.swift */,
+				BAA321F5232D784F002E9469 /* LocalNotificationManager.swift */,
+				BAA321FA232D92B5002E9469 /* NotificationDelegate.swift */,
+			);
+			path = UserNotifications;
 			sourceTree = "<group>";
 		};
 		BAAB6B242322DA1900C3660B /* Storyboard */ = {
@@ -208,6 +228,9 @@
 								enabled = 0;
 							};
 							com.apple.HealthKit = {
+								enabled = 1;
+							};
+							com.apple.Push = {
 								enabled = 1;
 							};
 						};
@@ -297,6 +320,8 @@
 				BAD0D2C923172A5400F96108 /* ProfileDataStore.swift in Sources */,
 				BAAB6B4C232952ED00C3660B /* PontzerDemoTommyTilton.xcdatamodeld in Sources */,
 				BAAB6B4F232956C900C3660B /* MealDataPoint+CoreDataClass.swift in Sources */,
+				BAA321FD232D99D1002E9469 /* DateManager.swift in Sources */,
+				BAA321FB232D92B5002E9469 /* NotificationDelegate.swift in Sources */,
 				BAD0D2BE2314315400F96108 /* WelcomeViewController.swift in Sources */,
 				BAAB6B50232956C900C3660B /* MealDataPoint+CoreDataProperties.swift in Sources */,
 				BAD0D2C723159E9800F96108 /* HealthKitAssistantSetup.swift in Sources */,
@@ -308,6 +333,8 @@
 				BA1557D4231221BB00DFAFA1 /* SignUpViewController.swift in Sources */,
 				BA47491A2322D43100CA1C33 /* DisplayMealTableViewController.swift in Sources */,
 				BA1557C4231220E300DFAFA1 /* ViewController.swift in Sources */,
+				BAA321F6232D784F002E9469 /* LocalNotificationManager.swift in Sources */,
+				BAA321F8232D7889002E9469 /* Notification.swift in Sources */,
 				BA1557C2231220E300DFAFA1 /* AppDelegate.swift in Sources */,
 				BAD0D2B923136D8F00F96108 /* Constants.swift in Sources */,
 				BAD0D2C02314388000F96108 /* MealViewController.swift in Sources */,

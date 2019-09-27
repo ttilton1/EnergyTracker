@@ -5,6 +5,7 @@
 //  Created by Thomas Tilton on 8/13/19.
 //  Copyright © 2019 Thomas Tilton. All rights reserved.
 //
+/*
 
 import UIKit
 import FirebaseAuth
@@ -15,7 +16,7 @@ import UserNotifications
 
 class HomeViewController: UITableViewController {
     
-    var choices = ["Enter a meal", "Activity Data", "Meal History"] //left off here
+    var choices = ["Enter a meal", "Activity Data", "Meal History", "Mood Level Input"] //left off here
     
     
     override func viewDidLoad() {
@@ -34,10 +35,11 @@ class HomeViewController: UITableViewController {
             [NSAttributedString.Key.strokeColor: UIColor.init(red: 21/255, green: 70/255, blue: 232/255, alpha: 1)]
  */
         title = "Metabolic Data Entry"
-        let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+   //     let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         //request new ui bar button item that is flexible space, not tapped so no target or action
-        let signOut = UIBarButtonItem(title: "logout", style: .done, target: self, action: #selector(logout))
-        toolbarItems = [spacer, signOut] //array with flex space and reset button, tooolbarItems comes
+        //let signOut = UIBarButtonItem(title: "Sign out", style: .done, target: self, action: #selector(logout))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Sign out", style: .done, target: self, action: #selector(logout))
+       // toolbarItems = [spacer, signOut] //array with flex space and reset button, tooolbarItems comes
         navigationController?.isToolbarHidden = false //toolbar shownr
         
         //Set up push notification
@@ -163,19 +165,46 @@ class HomeViewController: UITableViewController {
     }
  */
     //
+    
+    @objc func getTopMostViewController() -> UIViewController? {
+        var topMostViewController = UIApplication.shared.keyWindow?.rootViewController
+        
+        while let presentedViewController = topMostViewController?.presentedViewController {
+            topMostViewController = presentedViewController
+        }
+        
+        return topMostViewController
+    }
+    
     @objc func logout() {
+        print(123)
         let firebaseAuth = Auth.auth()
         do {
             try firebaseAuth.signOut()
+            /* 9/18/19
+            let mainStoryboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let nav = mainStoryboard.instantiateViewController(withIdentifier: Constants.Storyboard.viewController) as UIViewController
+            let vc = UINavigationController(rootViewController: nav)
+            self.present(vc, animated: true, completion: nil)
+ */
+            
+            self.navigationController?.popToRootViewController(animated: true)
+            //var rootViewController = self.navigationController?.viewControllers.first
+            //getTopMostViewController()?.present(rootViewController!, animated: true, completion: nil)
+            
+            //stuff from video
+            /*
+            let welcomeController = WelcomeViewController()
+            let welcomeNavigationController = UINavigationController(rootViewController: welcomeController)
+            getTopMostViewController()?.present(welcomeNavigationController, animated: true, completion: nil)
+            print(getTopMostViewController())
+ */
         } catch let signOutError as NSError {
             print ("Error signing out: %@", signOutError)
         }
-        //navigate to signup/ log in screen
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.viewController) as UIViewController
-        let vc = UINavigationController(rootViewController: controller)
-        self.present(vc, animated: true, completion: nil)
-    }
+}
+
+
     
     //rows stuff
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -205,12 +234,16 @@ class HomeViewController: UITableViewController {
             if let vc = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.activityViewController) as? ActivityDataViewController {
                 navigationController?.pushViewController(vc, animated: true)
             }
-        } else {
+        } else if choices[indexPath.row] == "Mood Level Input" {
             if let vc = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.displayMealViewController) as? DisplayMealTableViewController {
                 navigationController?.pushViewController(vc, animated: true)
             }
+        } else {
+            if let vc = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.moodViewController) as? MoodViewController {
+                navigationController?.pushViewController(vc, animated: true)
+            }
         }
-        }
+    }
  
         //storyboard might be present or nil, so use ? - optional chaining
         //instantiateViewController might fail if not "Detail"
@@ -240,3 +273,4 @@ class HomeViewController: UITableViewController {
     
 }
 
+*/

@@ -66,7 +66,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 self.errorLabel.alpha = 1
             }
             else{
-                self.transitionToHome()
+                //self.transitionToHome()
+              //  self.shouldPerformSegue(withIdentifier: "SeguePlease", sender: nil)
+               self.performSegue(withIdentifier: "Seguev", sender: nil)
             }
         }
         
@@ -74,17 +76,26 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     func transitionToHome() {
+        
+        let mainStoryboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let nav = mainStoryboard.instantiateViewController(withIdentifier: Constants.Storyboard.homeViewController) as! UITableViewController
+        let vc = UINavigationController(rootViewController: nav)
+        self.present(vc, animated: true, completion: nil)
+    //    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+  //      appDelegate.window?.rootViewController = vc
  /*   //Option 1
     let homeViewController = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.homeViewController) as? HomeViewController
         
     view.window?.rootViewController = homeViewController
     view.window?.makeKeyAndVisible()
  */ // new way
+        
+        /* THIS ONE WORKED HERE****************9/15/19
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.homeViewController) as! UITableViewController
         let vc = UINavigationController(rootViewController: controller)
         self.present(vc, animated: true, completion: nil)
-
+*/
         /*
     let navViewController = storyboard?.instantiateViewController(withIdentifier: "nav2") as? UINavigationController
     view.window?.rootViewController = navViewController

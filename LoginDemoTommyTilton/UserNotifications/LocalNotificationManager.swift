@@ -36,7 +36,7 @@ class LocalNotificationManager
             
         }
     }
-    
+    //test with print statement which case is being used
     func schedule() {
         UNUserNotificationCenter.current().getNotificationSettings { settings in
             switch settings.authorizationStatus {

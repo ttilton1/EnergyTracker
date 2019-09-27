@@ -80,6 +80,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         return nil
     }
     //IB Action Methods
+    
     @IBAction func signUpTapped(_ sender: Any) {
         
         //validate the fields
@@ -110,9 +111,15 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                     let docData: [String: Any] = ["firstname":firstName, "lastname":lastName, "uid":uid]
                     let db = Firestore.firestore()
                     db.collection("users").document(uid).setData(docData)
-                //   db.collection("users").document(result!.user.uid.set)  Auth.auth().currentUser!.uid
-                   // db.collection("users").document( set(result!.user.uid))
-                    
+                   
+              //      self.transitionToHome()
+                    /*
+                    let mainStoryboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                    let nav = mainStoryboard.instantiateViewController(withIdentifier: Constants.Storyboard.homeViewController) as! UITableViewController
+                    let vc = UINavigationController(rootViewController: nav)
+ */
+ //self.addChild(vc)
+
                     /* //Old way, no way of setting Document ID
                     db.collection("users").addDocument(data: ["firstname":firstName, "lastname":lastName, "uid":result!.user.uid]) { (error) in
                         if error != nil {
@@ -122,10 +129,11 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                     }
                     */
                     //transition to homescreen
-                    self.transitionToHome()
+               //     self.transitionToHome()
                     
                 }
             }
+            self.performSegue(withIdentifier: "Seguevi", sender: nil)
             
         }
     }
@@ -135,18 +143,27 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         errorLabel.text = message
         errorLabel.alpha = 1
     }
-    
+    /*
     func transitionToHome() {
+        let mainStoryboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let nav = mainStoryboard.instantiateViewController(withIdentifier: Constants.Storyboard.homeViewController) as! UITableViewController
+        let vc = UINavigationController(rootViewController: nav)
+         self.present(vc, animated: true, completion: nil)
+ */
+   //     let appDelegate = UIApplication.shared.delegate as! AppDelegate
+  //      appDelegate.window?.rootViewController = vc
       /* //TUTORIAL Way
     let homeViewController = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.homeViewController) as? HomeViewController
         view.window?.rootViewController = homeViewController
         view.window?.makeKeyAndVisible()
         */ //newway
+        
+        /* THIS WORKEDDDD 9/15/19
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.homeViewController) as! UITableViewController
          let vc = UINavigationController(rootViewController: controller)
          self.present(vc, animated: true, completion: nil)
-
+*/
         /*
         if let vc = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.homeViewController) as? HomeViewController {
             //maybe should put rootviewcontroller assignment here.
@@ -154,7 +171,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         }
  */
 
-    }
+    
     
     //textfield delegate
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		71CF6C417B7617E9C1CE8133 /* Pods_PontzerDemoTommyTilton.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D623452C9019BB3AD11AD91 /* Pods_PontzerDemoTommyTilton.framework */; };
+		BA0F5FEC233252DF0033515C /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0F5FEB233252DF0033515C /* MainTableViewController.swift */; };
+		BA0F5FFA2333AFB50033515C /* MoodsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0F5FF92333AFB50033515C /* MoodsViewController.swift */; };
 		BA1557C2231220E300DFAFA1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1557C1231220E300DFAFA1 /* AppDelegate.swift */; };
 		BA1557C4231220E300DFAFA1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1557C3231220E300DFAFA1 /* ViewController.swift */; };
 		BA1557C7231220E300DFAFA1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA1557C5231220E300DFAFA1 /* Main.storyboard */; };
@@ -18,6 +20,11 @@
 		BA1557D82312220E00DFAFA1 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1557D72312220E00DFAFA1 /* HomeViewController.swift */; };
 		BA4749172322C9F600CA1C33 /* UITextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4749162322C9F600CA1C33 /* UITextField+Extensions.swift */; };
 		BA47491A2322D43100CA1C33 /* DisplayMealTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4749192322D43100CA1C33 /* DisplayMealTableViewController.swift */; };
+		BA64EF6D23356876003E936B /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = BA64EF6C23356875003E936B /* Icon.png */; };
+		BA64EF6F2335AE90003E936B /* TaskListViewTableSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA64EF6E2335AE90003E936B /* TaskListViewTableSection.swift */; };
+		BA64EF7323370840003E936B /* TableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA64EF7223370840003E936B /* TableCell.swift */; };
+		BA64EF7523370CB4003E936B /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA64EF7423370CB4003E936B /* Colors.swift */; };
+		BA64EF77233D51F0003E936B /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA64EF76233D51F0003E936B /* HeaderView.swift */; };
 		BAA321F6232D784F002E9469 /* LocalNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA321F5232D784F002E9469 /* LocalNotificationManager.swift */; };
 		BAA321F8232D7889002E9469 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA321F7232D7889002E9469 /* Notification.swift */; };
 		BAA321FB232D92B5002E9469 /* NotificationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA321FA232D92B5002E9469 /* NotificationDelegate.swift */; };
@@ -29,7 +36,6 @@
 		BAD0D2B72313191600F96108 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BAD0D2B62313191600F96108 /* GoogleService-Info.plist */; };
 		BAD0D2B923136D8F00F96108 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD0D2B823136D8F00F96108 /* Constants.swift */; };
 		BAD0D2BB23136DC100F96108 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD0D2BA23136DC100F96108 /* Utilities.swift */; };
-		BAD0D2BE2314315400F96108 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD0D2BD2314315400F96108 /* WelcomeViewController.swift */; };
 		BAD0D2C02314388000F96108 /* MealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD0D2BF2314388000F96108 /* MealViewController.swift */; };
 		BAD0D2C22314F40F00F96108 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAD0D2C12314F40F00F96108 /* HealthKit.framework */; };
 		BAD0D2C52314F76C00F96108 /* ActivityDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD0D2C42314F76C00F96108 /* ActivityDataViewController.swift */; };
@@ -41,6 +47,8 @@
 		4D623452C9019BB3AD11AD91 /* Pods_PontzerDemoTommyTilton.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PontzerDemoTommyTilton.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A20DF2DBF6AC9C018375909 /* Pods-PontzerDemoTommyTilton.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PontzerDemoTommyTilton.release.xcconfig"; path = "Target Support Files/Pods-PontzerDemoTommyTilton/Pods-PontzerDemoTommyTilton.release.xcconfig"; sourceTree = "<group>"; };
 		ABC3F50717F9FCFA808D8806 /* Pods-PontzerDemoTommyTilton.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PontzerDemoTommyTilton.debug.xcconfig"; path = "Target Support Files/Pods-PontzerDemoTommyTilton/Pods-PontzerDemoTommyTilton.debug.xcconfig"; sourceTree = "<group>"; };
+		BA0F5FEB233252DF0033515C /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
+		BA0F5FF92333AFB50033515C /* MoodsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodsViewController.swift; sourceTree = "<group>"; };
 		BA1557BE231220E300DFAFA1 /* PontzerDemoTommyTilton.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PontzerDemoTommyTilton.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA1557C1231220E300DFAFA1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BA1557C3231220E300DFAFA1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -53,6 +61,11 @@
 		BA1557D72312220E00DFAFA1 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		BA4749162322C9F600CA1C33 /* UITextField+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extensions.swift"; sourceTree = "<group>"; };
 		BA4749192322D43100CA1C33 /* DisplayMealTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayMealTableViewController.swift; sourceTree = "<group>"; };
+		BA64EF6C23356875003E936B /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		BA64EF6E2335AE90003E936B /* TaskListViewTableSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListViewTableSection.swift; sourceTree = "<group>"; };
+		BA64EF7223370840003E936B /* TableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCell.swift; sourceTree = "<group>"; };
+		BA64EF7423370CB4003E936B /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		BA64EF76233D51F0003E936B /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		BAA321F5232D784F002E9469 /* LocalNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationManager.swift; sourceTree = "<group>"; };
 		BAA321F7232D7889002E9469 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		BAA321FA232D92B5002E9469 /* NotificationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationDelegate.swift; sourceTree = "<group>"; };
@@ -64,7 +77,6 @@
 		BAD0D2B62313191600F96108 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BAD0D2B823136D8F00F96108 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BAD0D2BA23136DC100F96108 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
-		BAD0D2BD2314315400F96108 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		BAD0D2BF2314388000F96108 /* MealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealViewController.swift; sourceTree = "<group>"; };
 		BAD0D2C12314F40F00F96108 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		BAD0D2C32314F40F00F96108 /* PontzerDemoTommyTilton.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PontzerDemoTommyTilton.entitlements; sourceTree = "<group>"; };
@@ -128,11 +140,15 @@
 				BA1557C8231220E500DFAFA1 /* Assets.xcassets */,
 				BAD0D2B62313191600F96108 /* GoogleService-Info.plist */,
 				BA1557CD231220E500DFAFA1 /* Info.plist */,
+				BA64EF6C23356875003E936B /* Icon.png */,
 				BAD0D2B823136D8F00F96108 /* Constants.swift */,
 				BAD0D2BA23136DC100F96108 /* Utilities.swift */,
 				BA4749162322C9F600CA1C33 /* UITextField+Extensions.swift */,
 				BAAB6B272322DCED00C3660B /* MealObject.swift */,
 				BAA321FC232D99D1002E9469 /* DateManager.swift */,
+				BA64EF6E2335AE90003E936B /* TaskListViewTableSection.swift */,
+				BA64EF7223370840003E936B /* TableCell.swift */,
+				BA64EF7423370CB4003E936B /* Colors.swift */,
 			);
 			path = LoginDemoTommyTilton;
 			sourceTree = "<group>";
@@ -140,7 +156,6 @@
 		BA1557D92312222300DFAFA1 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				BAD0D2BD2314315400F96108 /* WelcomeViewController.swift */,
 				BA1557C3231220E300DFAFA1 /* ViewController.swift */,
 				BA1557D3231221BB00DFAFA1 /* SignUpViewController.swift */,
 				BA1557D5231221DA00DFAFA1 /* LoginViewController.swift */,
@@ -148,6 +163,9 @@
 				BAD0D2BF2314388000F96108 /* MealViewController.swift */,
 				BAD0D2C42314F76C00F96108 /* ActivityDataViewController.swift */,
 				BA4749192322D43100CA1C33 /* DisplayMealTableViewController.swift */,
+				BA0F5FEB233252DF0033515C /* MainTableViewController.swift */,
+				BA0F5FF92333AFB50033515C /* MoodsViewController.swift */,
+				BA64EF76233D51F0003E936B /* HeaderView.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -262,6 +280,7 @@
 			files = (
 				BA1557CC231220E500DFAFA1 /* LaunchScreen.storyboard in Resources */,
 				BAD0D2B72313191600F96108 /* GoogleService-Info.plist in Resources */,
+				BA64EF6D23356876003E936B /* Icon.png in Resources */,
 				BA1557C9231220E500DFAFA1 /* Assets.xcassets in Resources */,
 				BA1557C7231220E300DFAFA1 /* Main.storyboard in Resources */,
 			);
@@ -320,22 +339,27 @@
 				BAD0D2C923172A5400F96108 /* ProfileDataStore.swift in Sources */,
 				BAAB6B4C232952ED00C3660B /* PontzerDemoTommyTilton.xcdatamodeld in Sources */,
 				BAAB6B4F232956C900C3660B /* MealDataPoint+CoreDataClass.swift in Sources */,
+				BA0F5FEC233252DF0033515C /* MainTableViewController.swift in Sources */,
 				BAA321FD232D99D1002E9469 /* DateManager.swift in Sources */,
 				BAA321FB232D92B5002E9469 /* NotificationDelegate.swift in Sources */,
-				BAD0D2BE2314315400F96108 /* WelcomeViewController.swift in Sources */,
 				BAAB6B50232956C900C3660B /* MealDataPoint+CoreDataProperties.swift in Sources */,
 				BAD0D2C723159E9800F96108 /* HealthKitAssistantSetup.swift in Sources */,
 				BA1557D6231221DA00DFAFA1 /* LoginViewController.swift in Sources */,
+				BA64EF7523370CB4003E936B /* Colors.swift in Sources */,
 				BAD0D2BB23136DC100F96108 /* Utilities.swift in Sources */,
 				BAD0D2C52314F76C00F96108 /* ActivityDataViewController.swift in Sources */,
 				BAAB6B282322DCED00C3660B /* MealObject.swift in Sources */,
 				BA4749172322C9F600CA1C33 /* UITextField+Extensions.swift in Sources */,
 				BA1557D4231221BB00DFAFA1 /* SignUpViewController.swift in Sources */,
 				BA47491A2322D43100CA1C33 /* DisplayMealTableViewController.swift in Sources */,
+				BA64EF7323370840003E936B /* TableCell.swift in Sources */,
+				BA64EF6F2335AE90003E936B /* TaskListViewTableSection.swift in Sources */,
+				BA64EF77233D51F0003E936B /* HeaderView.swift in Sources */,
 				BA1557C4231220E300DFAFA1 /* ViewController.swift in Sources */,
 				BAA321F6232D784F002E9469 /* LocalNotificationManager.swift in Sources */,
 				BAA321F8232D7889002E9469 /* Notification.swift in Sources */,
 				BA1557C2231220E300DFAFA1 /* AppDelegate.swift in Sources */,
+				BA0F5FFA2333AFB50033515C /* MoodsViewController.swift in Sources */,
 				BAD0D2B923136D8F00F96108 /* Constants.swift in Sources */,
 				BAD0D2C02314388000F96108 /* MealViewController.swift in Sources */,
 			);
@@ -495,7 +519,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = PresidioWorks.PontzerDemoTommyTilton;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -515,7 +539,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = PresidioWorks.PontzerDemoTommyTilton;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

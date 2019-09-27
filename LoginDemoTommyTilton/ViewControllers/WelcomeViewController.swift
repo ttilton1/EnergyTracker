@@ -11,7 +11,7 @@ import FirebaseAuth
 import UserNotifications
 
 class WelcomeViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         Auth.auth().addStateDidChangeListener {
@@ -35,6 +35,8 @@ class WelcomeViewController: UIViewController {
          present(vc, animated: true, completion: nil)*/
         let vc = UINavigationController(rootViewController: controller)
         self.present(vc, animated: true, completion: nil)
+        
+        
     }
     
     func goToSignUpLogIn() {

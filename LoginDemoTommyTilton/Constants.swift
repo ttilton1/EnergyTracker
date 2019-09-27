@@ -17,6 +17,9 @@ struct Constants {
         static let mealViewController = "MealVC"
         static let activityViewController = "ActivityVC"
         static let displayMealViewController = "displayMealVC"
+        static let welcomeViewController = "welcomeVC"
+        static let mainViewController = "mainVC"
+        static let moodsViewController = "moodsVC"
     }
     
     

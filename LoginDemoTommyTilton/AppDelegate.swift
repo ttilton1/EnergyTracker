@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import FirebaseAuth
 import CoreData
 import UserNotifications
 
@@ -21,7 +22,43 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
  //       registerForPushNotifications()
         UNUserNotificationCenter.current().delegate = self
-
+        
+        let mainStoryboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let nav = mainStoryboard.instantiateViewController(withIdentifier: Constants.Storyboard.viewController) as UIViewController
+        let vc = UINavigationController(rootViewController: nav)
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.window?.rootViewController = vc
+        
+        Auth.auth().addStateDidChangeListener {
+            auth, user in
+            if user != nil {
+                let mainStoryboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                let nav = mainStoryboard.instantiateViewController(withIdentifier: Constants.Storyboard.mainViewController) as! UITableViewController
+                let vc = UINavigationController(rootViewController: nav)
+                let appDelegate = UIApplication.shared.delegate as! AppDelegate
+               // appDelegate.window?.rootViewController?.addChild(vc)
+                appDelegate.window?.rootViewController?.present(vc, animated: true, completion: nil)
+                /*
+                let mainStoryboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                let nav = mainStoryboard.instantiateViewController(withIdentifier: Constants.Storyboard.homeViewController) as! UITableViewController
+                let vc = UINavigationController(rootViewController: nav)
+                let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                appDelegate.window?.rootViewController = vc
+                
+                */
+            }
+            else {
+                return
+                /*
+                let mainStoryboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                let nav = mainStoryboard.instantiateViewController(withIdentifier: Constants.Storyboard.viewController) as UIViewController
+                let vc = UINavigationController(rootViewController: nav)
+                let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                appDelegate.window?.rootViewController = vc
+ */
+            }
+        }
+        
         return true
     }
 

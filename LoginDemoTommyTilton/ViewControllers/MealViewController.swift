@@ -56,7 +56,7 @@ class MealViewController: UIViewController, UITextFieldDelegate {
         self.mealSizeText.delegate = self
         //coredata persistence
         //persistenceManager.
-        
+        title = "Meal Entry"
         //hackingwihtswift coredata
         container = NSPersistentContainer(name: "PontzerDemoTommyTilton")
         
@@ -227,7 +227,8 @@ class MealViewController: UIViewController, UITextFieldDelegate {
             }
     
     
-                self.transitionToHome()
+           //     self.transitionToHome()
+            navigationController?.popViewController(animated: true)
                     
                 }
     

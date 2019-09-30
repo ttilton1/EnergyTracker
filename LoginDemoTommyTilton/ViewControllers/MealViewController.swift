@@ -11,6 +11,7 @@ import FirebaseFirestore
 import Firebase
 import FirebaseAuth
 import CoreData
+import HealthKit
 
 class MealViewController: UIViewController, UITextFieldDelegate {
     
@@ -29,6 +30,7 @@ class MealViewController: UIViewController, UITextFieldDelegate {
     //hacking with swift coredata
     var container: NSPersistentContainer!
     var mealDataPoints = [MealDataPoint]()
+    var stepArray = [Double]()
     
     /*
     //persistence manager for coredata to save meal
@@ -225,9 +227,65 @@ class MealViewController: UIViewController, UITextFieldDelegate {
                 let stringYesterday = self.getYesterdayStringDate()
             db.collection("users").document(userID).collection("Steps").document(stringYesterday).setData(doc)
             }
-    
-    
-           //     self.transitionToHome()
+            
+            //Hourly steps from last week saved
+            let healthKitStore = HKHealthStore()
+            let type = HKQuantityType.quantityType(forIdentifier: .stepCount)!
+            let now = Date()
+            let todayBeg = Calendar.current.startOfDay(for: now)
+            let startDate = Calendar.current.startOfDay(for: Calendar.current.date(byAdding: .day, value: -7, to: now)!)
+            var interval = DateComponents()
+            interval.hour = 1
+            print("Hello")
+            let predicate = HKQuery.predicateForSamples(withStart: startDate, end: now, options: .strictStartDate)
+            let query = HKStatisticsCollectionQuery(quantityType: type, quantitySamplePredicate: predicate, options: [.cumulativeSum], anchorDate: todayBeg, intervalComponents: interval)
+            
+            query.initialResultsHandler = { query, results, error in
+                
+                print("inside")
+                let endDate = Date()
+                let startDate = Calendar.current.startOfDay(for: Calendar.current.date(byAdding: .day, value: -7, to: now)!)
+                if let myResults = results{
+                    print("double inside")
+                    myResults.enumerateStatistics(from: startDate, to: endDate) {
+                        
+                        statistics, stop in
+                        print("tripple inside")
+                        let quantity = statistics.sumQuantity()
+                        print("4 inside")
+                        let date = statistics.startDate
+                        // let steps = statistics.sumQuantity()?.doubleValue(for: HKUnit.count())
+                        var steps = quantity?.doubleValue(for: HKUnit.count())
+                        if steps == nil {
+                            steps = 0.0
+                        }
+                        let formatter = DateFormatter()
+                        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+                        let myString = formatter.string(from: date)
+                        
+                        let db = Firestore.firestore()
+                        let userID = Auth.auth().currentUser!.uid
+                        let doc: [String: Any] = ["steps":steps!]
+                    db.collection("users").document(userID).collection("StepCounts").document(myString).setData(doc) { (error) in
+                            if error != nil {
+                                self.showError("Error in saving user data")
+                            }
+                        
+                        }
+                    }
+                        //self.stepArray[myString] = steps
+                        
+                        //  print("\(date): steps = \(steps)")
+                        
+                        //    }
+                        //next step look at guard statement instead of if let above **********************************************
+                        
+                    }
+                }
+            
+            healthKitStore.execute(query)
+            
+
             navigationController?.popViewController(animated: true)
                     
                 }

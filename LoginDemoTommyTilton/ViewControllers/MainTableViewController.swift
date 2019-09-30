@@ -14,13 +14,13 @@ import UserNotifications
 
 class MainTableViewController: UITableViewController {
     
-    var choices = ["Enter a meal", "Activity Data", "Meal History", "Mood Level Input"] //left off here
-        var headerView: HeaderView!
+    var choices = ["Enter a meal", "Mood Level Input", "Send Step Data", "Meal History"] //left off here
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.hidesBackButton = true
-        self.view.backgroundColor = Colors.appTintColor.color
+      //  self.view.backgroundColor = Colors.appTintColor.color
 
         registerNotications()
         //extra setup
@@ -32,14 +32,20 @@ class MainTableViewController: UITableViewController {
          scheduleLocal()
          
          */ //end of hacking with swift push notifications
-        
-        navigationController?.navigationBar.prefersLargeTitles = true //large title
+        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+       navigationController?.navigationBar.prefersLargeTitles = true //large title
         /* //COLOR CHANGING NOT WORKING HERE
          navigationController?.navigationBar.titleTextAttributes =
          [NSAttributedString.Key.strokeColor: UIColor.init(red: 21/255, green: 70/255, blue: 232/255, alpha: 1)]
          */
         title = "Energy Tracker"
-        navigationController?.navigationBar.barTintColor = Colors.appTintColor.color
+        navigationController?.navigationBar.barTintColor = Colors.tableViewBackgroundColor.color
+        self.navigationController?.navigationBar.tintColor = UIColor.white;
+       // if var textAttributes = navigationController?.navigationBar.titleTextAttributes {
+      //      textAttributes[NSAttributedString.Key.foregroundColor] = UIColor.red
+     //       navigationController?.navigationBar.titleTextAttributes = textAttributes
+       // }
    //     let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         //request new ui bar button item that is flexible space, not tapped so no target or action
         //let signOut = UIBarButtonItem(title: "Sign out", style: .done, target: self, action: #selector(logout))
@@ -51,20 +57,9 @@ class MainTableViewController: UITableViewController {
         
     } //End viewDidLoad()
     
-    func setHeader() {
-        headerView.translatesAutoresizingMaskIntoConstraints = false
-       // headerView.title = "Energy Tracker"
-    }
-    //Set up header 9/26/19
-    func setupHeader() {
-        
-        let attributedDescription = NSMutableAttributedString(string: "Powered by ResearchKit", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14.0, weight: .light)])
-        attributedDescription.addAttribute(NSAttributedString.Key.font, value: UIFont.systemFont(ofSize: 16.0, weight: .bold), range: NSRange(location: 11, length: 11))
-        
-        headerView = HeaderView(title: "Duke Energetic", descriptionText: attributedDescription, invertColors: true)
-        headerView.translatesAutoresizingMaskIntoConstraints = false
-        self.view.addSubview(headerView)
-    }
+  
+    
+
     //registerNotifications 9/13/19
     func registerNotications() {
         let manager = LocalNotificationManager()
@@ -169,7 +164,7 @@ class MainTableViewController: UITableViewController {
     }
     
     @objc func logout() {
-        print(123)
+ 
         let firebaseAuth = Auth.auth()
         do {
             try firebaseAuth.signOut()
@@ -231,24 +226,26 @@ class MainTableViewController: UITableViewController {
         if indexPath.row == 0 {
          cell = TableCell(text: "Enter a meal", style: .default, reuseIdentifier: "itemChoices")
          } else if indexPath.row == 1 {
-         cell = TableCell(text: "Authorize Activity Data", style: .default, reuseIdentifier: "itemChoices")
-        } else if indexPath.row == 2 {
-            cell = TableCell(text: "Meal History", style: .default, reuseIdentifier: "itemChoices")
+         cell = TableCell(text: "Mood Level Input", style: .default, reuseIdentifier: "itemChoices")
+        }  else if indexPath.row == 2 {
+            cell = TableCell(text: "Send Step Data", style: .default, reuseIdentifier: "itemChoices")
         } else if indexPath.row == 3 {
-            cell = TableCell(text: "Mood Level Input", style: .default, reuseIdentifier: "itemChoices")
+            cell = TableCell(text: "Meal History", style: .default, reuseIdentifier: "itemChoices")
         }
-        
         return cell
     }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if choices[indexPath.row] == "Enter a meal" {
-            //          let va = MealViewController(persistenceManager: PersistenceManager.shared)
-            //           if let vreal = storyboard?.instantiateIni
             if let vc = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.mealViewController) as? MealViewController {
-                
                 navigationController?.pushViewController(vc, animated: true)
             }
-        } else if choices[indexPath.row] == "Activity Data" {
+        } else if choices[indexPath.row] == "Mood Level Input"{
+            if let vc = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.moodsViewController) as? MoodsViewController {
+                navigationController?.pushViewController(vc, animated: true)
+            }
+            
+        } else if choices[indexPath.row] == "Send Step Data" {
             if let vc = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.activityViewController) as? ActivityDataViewController {
                 navigationController?.pushViewController(vc, animated: true)
             }
@@ -256,36 +253,10 @@ class MainTableViewController: UITableViewController {
             if let vc = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.displayMealViewController) as? DisplayMealTableViewController {
                 navigationController?.pushViewController(vc, animated: true)
             }
-        } else if choices[indexPath.row] == "Mood Level Input"{
-            if let vc = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.moodsViewController) as? MoodsViewController {
-                navigationController?.pushViewController(vc, animated: true)
-            }
         }
  
     }
-    
-    //storyboard might be present or nil, so use ? - optional chaining
-    //instantiateViewController might fail if not "Detail"
-    //typecast might fail
-    //if statement guarentee in safestate before steps taken
-    
-    
-    /*
-     func getStepsData() {
-     
-     // I am sendng steps to my server thats why using this variable
-     //var stepsToSend = 0
-     /*
-     ProfileDataStore.getTodaysSteps({ (stepRetrieved) in
-     stepsToSend =  Int(stepRetrieved)
-     })
-     */     var steps: Double
-     self.getTodaysSteps(){ (result) in
-     }
-     
-     }
-     
-     */
+
     
 
-}
+} //end class

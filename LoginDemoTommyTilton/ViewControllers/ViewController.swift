@@ -23,24 +23,11 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        titleLabel.font = .boldSystemFont(ofSize: 18)
-        /*
-        Auth.auth().addStateDidChangeListener {
-            auth, user in
-            if user != nil {
-                self.switchStoryboard()
-            }
-        }
-        */
+ 
+        
+        titleLabel.font = .boldSystemFont(ofSize: 25)
         title = "Welcome"
-        navigationController?.navigationBar.prefersLargeTitles = true //large title
-        /*
-         FIRAuth.auth()!.addStateDidChangeListener() { auth, user in
-         if user != nil {
-         self.switchStoryboard()
-         }
-         }
- */
+
         setUpElements()
     }
 
@@ -49,6 +36,18 @@ class ViewController: UIViewController {
     func setUpElements() {
         Utilities.styleFilledButton(signUpButton)
         Utilities.styleHollowButton(loginButton)
+        navigationController?.navigationBar.barTintColor = Colors.tableViewBackgroundColor.color
+        self.navigationController?.navigationBar.tintColor = UIColor.white;
+        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        navigationController?.navigationBar.prefersLargeTitles = true
+    //    let attrs = [
+      //      NSAttributedString.Key.foregroundColor: UIColor.red,
+            //NSAttributedString.Key.font: UIFont(name: "Georgia-Bold", size: 24)!
+   //     ]
+        
+   //     UINavigationBar.appearance().titleTextAttributes = attrs
+        self.navigationItem.title = "Welcome"
+
     }
     @IBAction func signUpPressed(_ sender: Any) {
         self.performSegue(withIdentifier: "Segueiv", sender: nil)

@@ -20,6 +20,7 @@ struct Constants {
         static let welcomeViewController = "welcomeVC"
         static let mainViewController = "mainVC"
         static let moodsViewController = "moodsVC"
+        static let stepDataViewController = "stepDataVC"
     }
     
     

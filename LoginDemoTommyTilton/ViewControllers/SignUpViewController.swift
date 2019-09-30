@@ -38,7 +38,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     }
     
     func setUpElements() {
-        
         //hide error label
         errorLabel.alpha = 0
         

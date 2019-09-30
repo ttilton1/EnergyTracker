@@ -267,9 +267,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Buo-ua-sO5" firstAttribute="trailing" secondItem="2lf-9u-fFc" secondAttribute="trailing" constant="40" id="HWE-BS-zrA"/>
-                            <constraint firstItem="2lf-9u-fFc" firstAttribute="leading" secondItem="Buo-ua-sO5" secondAttribute="leading" constant="40" id="eTU-yI-pv0"/>
-                            <constraint firstItem="2lf-9u-fFc" firstAttribute="top" secondItem="Buo-ua-sO5" secondAttribute="top" constant="40" id="tYN-WN-Uly"/>
+                            <constraint firstItem="Buo-ua-sO5" firstAttribute="trailing" secondItem="2lf-9u-fFc" secondAttribute="trailing" constant="40" id="UqY-Mk-AaB"/>
+                            <constraint firstItem="2lf-9u-fFc" firstAttribute="leading" secondItem="Buo-ua-sO5" secondAttribute="leading" constant="40" id="fFf-KZ-9Kt"/>
+                            <constraint firstItem="2lf-9u-fFc" firstAttribute="top" secondItem="Buo-ua-sO5" secondAttribute="top" constant="40" id="o8P-cT-Bhm"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Buo-ua-sO5"/>
                     </view>
@@ -296,24 +296,31 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="iBe-bH-xiL">
-                                <rect key="frame" x="40" y="84" width="334" height="100"/>
+                                <rect key="frame" x="40" y="84" width="334" height="160.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please Authorize Activity Data" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mWG-cS-1hO">
-                                        <rect key="frame" x="0.0" y="0.0" width="334" height="40"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Send step count by clicking below:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mWG-cS-1hO">
+                                        <rect key="frame" x="0.0" y="0.0" width="334" height="50"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IzA-vw-ElQ">
-                                        <rect key="frame" x="0.0" y="60" width="334" height="40"/>
+                                        <rect key="frame" x="0.0" y="70" width="334" height="50"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="hoJ-3Q-egs"/>
+                                            <constraint firstAttribute="height" constant="50" id="cyg-BD-eX2"/>
                                         </constraints>
-                                        <state key="normal" title="Authorize Activity Data"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                        <state key="normal" title="Send Step Data"/>
                                         <connections>
                                             <action selector="authorizePressed:" destination="qbq-Ej-Ie4" eventType="touchUpInside" id="wqF-Me-X2U"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eFP-sP-urm" userLabel="errorLabel">
+                                        <rect key="frame" x="0.0" y="140" width="334" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="mWG-cS-1hO" firstAttribute="height" secondItem="IzA-vw-ElQ" secondAttribute="height" id="g6X-UK-XaA"/>
@@ -330,11 +337,12 @@
                     </view>
                     <connections>
                         <outlet property="authorizeHealthData" destination="IzA-vw-ElQ" id="Nsw-1m-R34"/>
+                        <outlet property="errorLabel" destination="eFP-sP-urm" id="PHb-iK-blb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fQD-Tt-sLv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7180" y="874"/>
+            <point key="canvasLocation" x="7212" y="1524"/>
         </scene>
         <!--Display Meal Table View Controller-->
         <scene sceneID="DEU-AW-G8F">
@@ -362,7 +370,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="var-cT-kuG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7180" y="1556"/>
+            <point key="canvasLocation" x="7212" y="2201"/>
         </scene>
         <!--Moods View Controller-->
         <scene sceneID="Mw6-MX-C0X">
@@ -402,27 +410,24 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wtI-le-mzM">
                                         <rect key="frame" x="0.0" y="180" width="334" height="50"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Very Unpleasant" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qy8-wb-rSu">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Very Unpleasant: 0" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qy8-wb-rSu">
                                                 <rect key="frame" x="0.0" y="0.0" width="120" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="120" id="YAs-7H-caP"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Neutral " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jTt-u5-fly">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Neutral: 4" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jTt-u5-fly">
                                                 <rect key="frame" x="120" y="0.0" width="94" height="50"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="94" id="Nkd-G6-HlI"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Very Pleasant" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jM0-bW-bwh">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Very Pleasant: 7" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jM0-bW-bwh">
                                                 <rect key="frame" x="214" y="0.0" width="120" height="50"/>
-                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -497,7 +502,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LFU-i7-zcF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7192.753623188406" y="2219.1964285714284"/>
+            <point key="canvasLocation" x="7180" y="874"/>
         </scene>
         <!--Meal View Controller-->
         <scene sceneID="IrC-7h-QT1">
@@ -608,6 +613,13 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="TN3-CZ-gfX">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -620,6 +632,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="QMJ-eT-kyl"/>
+        <segue reference="wOZ-uR-E54"/>
     </inferredMetricsTieBreakers>
 </document>

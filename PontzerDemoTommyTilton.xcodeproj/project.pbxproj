@@ -21,10 +21,8 @@
 		BA4749172322C9F600CA1C33 /* UITextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4749162322C9F600CA1C33 /* UITextField+Extensions.swift */; };
 		BA47491A2322D43100CA1C33 /* DisplayMealTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4749192322D43100CA1C33 /* DisplayMealTableViewController.swift */; };
 		BA64EF6D23356876003E936B /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = BA64EF6C23356875003E936B /* Icon.png */; };
-		BA64EF6F2335AE90003E936B /* TaskListViewTableSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA64EF6E2335AE90003E936B /* TaskListViewTableSection.swift */; };
 		BA64EF7323370840003E936B /* TableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA64EF7223370840003E936B /* TableCell.swift */; };
 		BA64EF7523370CB4003E936B /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA64EF7423370CB4003E936B /* Colors.swift */; };
-		BA64EF77233D51F0003E936B /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA64EF76233D51F0003E936B /* HeaderView.swift */; };
 		BAA321F6232D784F002E9469 /* LocalNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA321F5232D784F002E9469 /* LocalNotificationManager.swift */; };
 		BAA321F8232D7889002E9469 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA321F7232D7889002E9469 /* Notification.swift */; };
 		BAA321FB232D92B5002E9469 /* NotificationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA321FA232D92B5002E9469 /* NotificationDelegate.swift */; };
@@ -62,10 +60,8 @@
 		BA4749162322C9F600CA1C33 /* UITextField+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extensions.swift"; sourceTree = "<group>"; };
 		BA4749192322D43100CA1C33 /* DisplayMealTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayMealTableViewController.swift; sourceTree = "<group>"; };
 		BA64EF6C23356875003E936B /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
-		BA64EF6E2335AE90003E936B /* TaskListViewTableSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListViewTableSection.swift; sourceTree = "<group>"; };
 		BA64EF7223370840003E936B /* TableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCell.swift; sourceTree = "<group>"; };
 		BA64EF7423370CB4003E936B /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
-		BA64EF76233D51F0003E936B /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		BAA321F5232D784F002E9469 /* LocalNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationManager.swift; sourceTree = "<group>"; };
 		BAA321F7232D7889002E9469 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		BAA321FA232D92B5002E9469 /* NotificationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationDelegate.swift; sourceTree = "<group>"; };
@@ -146,7 +142,6 @@
 				BA4749162322C9F600CA1C33 /* UITextField+Extensions.swift */,
 				BAAB6B272322DCED00C3660B /* MealObject.swift */,
 				BAA321FC232D99D1002E9469 /* DateManager.swift */,
-				BA64EF6E2335AE90003E936B /* TaskListViewTableSection.swift */,
 				BA64EF7223370840003E936B /* TableCell.swift */,
 				BA64EF7423370CB4003E936B /* Colors.swift */,
 			);
@@ -165,7 +160,6 @@
 				BA4749192322D43100CA1C33 /* DisplayMealTableViewController.swift */,
 				BA0F5FEB233252DF0033515C /* MainTableViewController.swift */,
 				BA0F5FF92333AFB50033515C /* MoodsViewController.swift */,
-				BA64EF76233D51F0003E936B /* HeaderView.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -353,8 +347,6 @@
 				BA1557D4231221BB00DFAFA1 /* SignUpViewController.swift in Sources */,
 				BA47491A2322D43100CA1C33 /* DisplayMealTableViewController.swift in Sources */,
 				BA64EF7323370840003E936B /* TableCell.swift in Sources */,
-				BA64EF6F2335AE90003E936B /* TaskListViewTableSection.swift in Sources */,
-				BA64EF77233D51F0003E936B /* HeaderView.swift in Sources */,
 				BA1557C4231220E300DFAFA1 /* ViewController.swift in Sources */,
 				BAA321F6232D784F002E9469 /* LocalNotificationManager.swift in Sources */,
 				BAA321F8232D7889002E9469 /* Notification.swift in Sources */,

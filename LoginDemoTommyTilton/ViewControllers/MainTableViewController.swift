@@ -14,7 +14,7 @@ import UserNotifications
 
 class MainTableViewController: UITableViewController {
     
-    var choices = ["Enter a meal", "Mood Level Input", "Send Step Data", "Meal History"] //left off here
+    var choices = ["Enter a meal", "Mood Level Input", "Send Step Data", "Meal History", "Authorize Notifications"] //left off here
    
     
     override func viewDidLoad() {
@@ -42,13 +42,7 @@ class MainTableViewController: UITableViewController {
         title = "Energy Tracker"
         navigationController?.navigationBar.barTintColor = Colors.tableViewBackgroundColor.color
         self.navigationController?.navigationBar.tintColor = UIColor.white;
-       // if var textAttributes = navigationController?.navigationBar.titleTextAttributes {
-      //      textAttributes[NSAttributedString.Key.foregroundColor] = UIColor.red
-     //       navigationController?.navigationBar.titleTextAttributes = textAttributes
-       // }
-   //     let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        //request new ui bar button item that is flexible space, not tapped so no target or action
-        //let signOut = UIBarButtonItem(title: "Sign out", style: .done, target: self, action: #selector(logout))
+ 
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Sign out", style: .done, target: self, action: #selector(logout))
         // toolbarItems = [spacer, signOut] //array with flex space and reset button, tooolbarItems comes
    //     navigationController?.isToolbarHidden = false //toolbar shownr
@@ -59,7 +53,8 @@ class MainTableViewController: UITableViewController {
     
   
     
-
+/*
+    //GOOD NOTIFICATIONS MANAGEMENT
     //registerNotifications 9/13/19
     func registerNotications() {
         let manager = LocalNotificationManager()
@@ -69,21 +64,20 @@ class MainTableViewController: UITableViewController {
         for n in 0 ... 6 {
             manager.notifications.append(contentsOf: [
                 
-                Notification(id: "reminder-\(1+3*n)", title: "Please enter mood data in Pontzer Metabolism App, Thank you!", datetime: dateManager.notification1[n]),
-                Notification(id: "reminder-\(2+3*n)", title: "Please enter mood data in Pontzer Metabolism App, Thank you!", datetime: dateManager.notification2[n]),
-                Notification(id: "reminder-\(3+3*n)", title: "Please enter mood data in Pontzer Metabolism App, Thank you!", datetime:
+                Notification(id: "reminder-\(1+3*n)", title: "Please enter mood data in the Energy Tracker App, Thank you!", datetime: dateManager.notification1[n]),
+                Notification(id: "reminder-\(2+3*n)", title: "Please enter mood data in the Energy Tracker App, Thank you!", datetime: dateManager.notification2[n]),
+                Notification(id: "reminder-\(3+3*n)", title: "Please enter mood data in the Energy Tracker App, Thank you!", datetime:
                     dateManager.notification3[n]),
-                Notification(id: "MealReminder-\(1+2*n)", title: "Please remember to enter your meals in Pontzer Metabolism App", datetime:
+                Notification(id: "MealReminder-\(1+2*n)", title: "Please remember to enter your meals in the Energy Tracker App", datetime:
                     dateManager.mealNotification1[n]),
-                Notification(id: "MealReminder-\(2+2*n)", title: "Please remember to enter your meals in Pontzer Metabolism App", datetime:
+                Notification(id: "MealReminder-\(2+2*n)", title: "Please remember to enter your meals in the Energy Tracker App", datetime:
                     dateManager.mealNotification2[n])
                 ])
-            print("helllllooo")
         }
         
         manager.schedule()
     }
-    
+*/
     
     /*
      //local notifications
@@ -172,39 +166,12 @@ class MainTableViewController: UITableViewController {
             let nav = mainStoryboard.instantiateViewController(withIdentifier: Constants.Storyboard.viewController) as UIViewController
             let vc = UINavigationController(rootViewController: nav)
             self.present(vc, animated: true, completion: nil)
-            // let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            // appDelegate.window?.rootViewController = vc
-            
-            //            self.navigationController?.popToRootViewController(animated: true)
-            //var rootViewController = self.navigationController?.viewControllers.first
-            //getTopMostViewController()?.present(rootViewController!, animated: true, completion: nil)
-            
-            //stuff from video
-            /*
-             let welcomeController = WelcomeViewController()
-             let welcomeNavigationController = UINavigationController(rootViewController: welcomeController)
-             getTopMostViewController()?.present(welcomeNavigationController, animated: true, completion: nil)
-             print(getTopMostViewController())
-             */
+
         } catch let signOutError as NSError {
             print ("Error signing out: %@", signOutError)
         }
     }
-    //navigate to signup/ log in screen
-    /*
-     let storyboard = UIStoryboard(name: "Main", bundle: nil)
-     let controller = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.welcomeViewController) as UIViewController
-     let vc = UINavigationController(rootViewController: controller)
-     self.present(vc, animated: true, completion: nil)
-     */
-    /*
-     
-     let storyboard = UIStoryboard(name: "Main", bundle: nil)
-     let controller = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.viewController) as UIViewController
-     let vc = UINavigationController(rootViewController: controller)
-     self.present(vc, animated: true, completion: nil)
-     */
-    //get top view controller
+
     
     
     
@@ -231,6 +198,8 @@ class MainTableViewController: UITableViewController {
             cell = TableCell(text: "Send Step Data", style: .default, reuseIdentifier: "itemChoices")
         } else if indexPath.row == 3 {
             cell = TableCell(text: "Meal History", style: .default, reuseIdentifier: "itemChoices")
+        } else if indexPath.row == 4 {
+            cell = TableCell(text: "Authorize Notifications", style: .default, reuseIdentifier: "itemChoices")
         }
         return cell
     }
@@ -251,6 +220,10 @@ class MainTableViewController: UITableViewController {
             }
         } else if choices[indexPath.row] == "Meal History" {
             if let vc = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.displayMealViewController) as? DisplayMealTableViewController {
+                navigationController?.pushViewController(vc, animated: true)
+            }
+        } else if choices[indexPath.row] == "Authorize Notifications" {
+            if let vc = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.NotificationsViewController) as? NotificationsViewController {
                 navigationController?.pushViewController(vc, animated: true)
             }
         }

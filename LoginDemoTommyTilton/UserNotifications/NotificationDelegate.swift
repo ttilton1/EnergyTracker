@@ -33,7 +33,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate
         let id = notification.request.identifier
         print("Received notification with ID = \(id)")
         
-        completionHandler([.sound, .alert])
+        completionHandler([.sound, .alert, .badge])
     
     }
 }

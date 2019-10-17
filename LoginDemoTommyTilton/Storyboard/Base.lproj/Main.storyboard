@@ -344,6 +344,74 @@
             </objects>
             <point key="canvasLocation" x="7212" y="1524"/>
         </scene>
+        <!--Notifications View Controller-->
+        <scene sceneID="cgJ-if-yzw">
+            <objects>
+                <viewController storyboardIdentifier="notificationsVC" id="WfQ-4U-WtL" customClass="NotificationsViewController" customModule="PontzerDemoTommyTilton" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YAz-0T-zO5">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="bts-4E-D8t">
+                                <rect key="frame" x="40" y="84" width="334" height="230.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notifications Management" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="amE-ho-0z6">
+                                        <rect key="frame" x="0.0" y="0.0" width="334" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eHE-xW-87z">
+                                        <rect key="frame" x="0.0" y="70" width="334" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="QeC-aE-3GL"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                        <state key="normal" title="Authorize Notifications"/>
+                                        <connections>
+                                            <action selector="NotificationsButtonPressed:" destination="WfQ-4U-WtL" eventType="touchUpInside" id="09D-2P-f3k"/>
+                                            <action selector="authorizePressed:" destination="qbq-Ej-Ie4" eventType="touchUpInside" id="NN6-G1-N36"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QET-Dp-mSh">
+                                        <rect key="frame" x="0.0" y="140" width="334" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                        <state key="normal" title="Cancel Notifications"/>
+                                        <connections>
+                                            <action selector="CancelPressed:" destination="WfQ-4U-WtL" eventType="touchUpInside" id="4Xc-Vy-CDj"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MYq-7n-MTR" userLabel="errorLabel">
+                                        <rect key="frame" x="0.0" y="210" width="334" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="QET-Dp-mSh" firstAttribute="height" secondItem="eHE-xW-87z" secondAttribute="height" id="GUj-Nh-3di"/>
+                                    <constraint firstItem="amE-ho-0z6" firstAttribute="height" secondItem="eHE-xW-87z" secondAttribute="height" id="vAe-7R-9Jg"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="HUW-JU-R8T" firstAttribute="trailing" secondItem="bts-4E-D8t" secondAttribute="trailing" constant="40" id="5f9-lQ-dPQ"/>
+                            <constraint firstItem="bts-4E-D8t" firstAttribute="leading" secondItem="HUW-JU-R8T" secondAttribute="leading" constant="40" id="kg1-SI-Rid"/>
+                            <constraint firstItem="bts-4E-D8t" firstAttribute="top" secondItem="HUW-JU-R8T" secondAttribute="top" constant="40" id="qpl-aD-K69"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="HUW-JU-R8T"/>
+                    </view>
+                    <connections>
+                        <outlet property="CancelButton" destination="QET-Dp-mSh" id="Wib-T6-nJw"/>
+                        <outlet property="NotificationsButton" destination="eHE-xW-87z" id="8tD-j2-Kjp"/>
+                        <outlet property="errorLabel" destination="MYq-7n-MTR" id="I1V-WR-SZr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jjD-Dk-8eh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7970" y="1514"/>
+        </scene>
         <!--Display Meal Table View Controller-->
         <scene sceneID="DEU-AW-G8F">
             <objects>

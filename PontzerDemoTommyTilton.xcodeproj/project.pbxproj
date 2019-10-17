@@ -125,9 +125,9 @@
 		BA1557C0231220E300DFAFA1 /* LoginDemoTommyTilton */ = {
 			isa = PBXGroup;
 			children = (
+				BA5D18CC2358F6C20005294D /* Meal */,
+				BA5D18CB2358F68D0005294D /* Extras */,
 				BAA321F9232D91FB002E9469 /* UserNotifications */,
-				BAAB6B4D232956C900C3660B /* MealDataPoint+CoreDataClass.swift */,
-				BAAB6B4E232956C900C3660B /* MealDataPoint+CoreDataProperties.swift */,
 				BAAB6B4A232952ED00C3660B /* PontzerDemoTommyTilton.xcdatamodeld */,
 				BA1557C1231220E300DFAFA1 /* AppDelegate.swift */,
 				BAAB6B242322DA1900C3660B /* Storyboard */,
@@ -137,13 +137,6 @@
 				BAD0D2B62313191600F96108 /* GoogleService-Info.plist */,
 				BA1557CD231220E500DFAFA1 /* Info.plist */,
 				BA64EF6C23356875003E936B /* Icon.png */,
-				BAD0D2B823136D8F00F96108 /* Constants.swift */,
-				BAD0D2BA23136DC100F96108 /* Utilities.swift */,
-				BA4749162322C9F600CA1C33 /* UITextField+Extensions.swift */,
-				BAAB6B272322DCED00C3660B /* MealObject.swift */,
-				BAA321FC232D99D1002E9469 /* DateManager.swift */,
-				BA64EF7223370840003E936B /* TableCell.swift */,
-				BA64EF7423370CB4003E936B /* Colors.swift */,
 			);
 			path = LoginDemoTommyTilton;
 			sourceTree = "<group>";
@@ -171,6 +164,29 @@
 				BAD0D2C823172A5400F96108 /* ProfileDataStore.swift */,
 			);
 			path = Health;
+			sourceTree = "<group>";
+		};
+		BA5D18CB2358F68D0005294D /* Extras */ = {
+			isa = PBXGroup;
+			children = (
+				BAD0D2BA23136DC100F96108 /* Utilities.swift */,
+				BA64EF7423370CB4003E936B /* Colors.swift */,
+				BA4749162322C9F600CA1C33 /* UITextField+Extensions.swift */,
+				BAD0D2B823136D8F00F96108 /* Constants.swift */,
+				BA64EF7223370840003E936B /* TableCell.swift */,
+				BAA321FC232D99D1002E9469 /* DateManager.swift */,
+			);
+			path = Extras;
+			sourceTree = "<group>";
+		};
+		BA5D18CC2358F6C20005294D /* Meal */ = {
+			isa = PBXGroup;
+			children = (
+				BAAB6B4D232956C900C3660B /* MealDataPoint+CoreDataClass.swift */,
+				BAAB6B4E232956C900C3660B /* MealDataPoint+CoreDataProperties.swift */,
+				BAAB6B272322DCED00C3660B /* MealObject.swift */,
+			);
+			path = Meal;
 			sourceTree = "<group>";
 		};
 		BAA321F9232D91FB002E9469 /* UserNotifications */ = {

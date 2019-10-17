@@ -34,5 +34,6 @@ extension AppDelegate: UNUserNotificationCenterDelegate
         print("Received notification with ID = \(id)")
         
         completionHandler([.sound, .alert])
+    
     }
 }

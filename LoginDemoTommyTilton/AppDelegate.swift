@@ -21,11 +21,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
 
-        UNUserNotificationCenter.current().delegate = self
+     //   UNUserNotificationCenter.current().delegate = self
+        if #available(iOS 13.0, *) {
+            let coloredAppearance = UINavigationBarAppearance()
+            coloredAppearance.configureWithOpaqueBackground()
+            coloredAppearance.backgroundColor = Colors.tableViewBackgroundColor.color
+            coloredAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+            coloredAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+            UINavigationBar.appearance().standardAppearance = coloredAppearance
+            UINavigationBar.appearance().scrollEdgeAppearance = coloredAppearance
+        } else {
+            // Fallback on earlier versions
+        }
+        
         
         let mainStoryboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let nav = mainStoryboard.instantiateViewController(withIdentifier: Constants.Storyboard.viewController) as UIViewController
         let vc = UINavigationController(rootViewController: nav)
+        vc.modalPresentationStyle = .fullScreen
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.window?.rootViewController = vc
 
@@ -35,7 +48,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             if user != nil {
                 let mainStoryboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                 let nav = mainStoryboard.instantiateViewController(withIdentifier: Constants.Storyboard.mainViewController) as! UITableViewController
+                
                 let vc = UINavigationController(rootViewController: nav)
+                vc.modalPresentationStyle = .fullScreen
+
                 let appDelegate = UIApplication.shared.delegate as! AppDelegate
                // appDelegate.window?.rootViewController?.addChild(vc)
                 appDelegate.window?.rootViewController?.present(vc, animated: true, completion: nil)

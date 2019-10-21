@@ -22,7 +22,7 @@ class MainTableViewController: UITableViewController {
         navigationItem.hidesBackButton = true
       //  self.view.backgroundColor = Colors.appTintColor.color
 
-        registerNotications()
+    //   registerNotications()
         //extra setup
         tableView.tableFooterView = UIView()
     
@@ -39,7 +39,7 @@ class MainTableViewController: UITableViewController {
          navigationController?.navigationBar.titleTextAttributes =
          [NSAttributedString.Key.strokeColor: UIColor.init(red: 21/255, green: 70/255, blue: 232/255, alpha: 1)]
          */
-        title = "Energy Tracker"
+        title = "Energetics Tracker"
         navigationController?.navigationBar.barTintColor = Colors.tableViewBackgroundColor.color
         self.navigationController?.navigationBar.tintColor = UIColor.white;
  
@@ -165,6 +165,7 @@ class MainTableViewController: UITableViewController {
             let mainStoryboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let nav = mainStoryboard.instantiateViewController(withIdentifier: Constants.Storyboard.viewController) as UIViewController
             let vc = UINavigationController(rootViewController: nav)
+            vc.modalPresentationStyle = .fullScreen
             self.present(vc, animated: true, completion: nil)
 
         } catch let signOutError as NSError {

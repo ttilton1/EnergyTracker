@@ -40,12 +40,6 @@ class ViewController: UIViewController {
         self.navigationController?.navigationBar.tintColor = UIColor.white;
         navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         navigationController?.navigationBar.prefersLargeTitles = true
-    //    let attrs = [
-      //      NSAttributedString.Key.foregroundColor: UIColor.red,
-            //NSAttributedString.Key.font: UIFont(name: "Georgia-Bold", size: 24)!
-   //     ]
-        
-   //     UINavigationBar.appearance().titleTextAttributes = attrs
         self.navigationItem.title = "Welcome"
 
     }
@@ -65,6 +59,7 @@ class ViewController: UIViewController {
          vc.modalPresentationStyle = .overFullScreen
          present(vc, animated: true, completion: nil)*/
         let vc = UINavigationController(rootViewController: controller)
+        vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true, completion: nil)
 
         

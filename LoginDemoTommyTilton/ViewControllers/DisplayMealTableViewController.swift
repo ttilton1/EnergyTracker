@@ -37,19 +37,6 @@ class DisplayMealTableViewController: UITableViewController {
             }
         }
         loadSavedData()
-        //Firebase code
-        /*
-        print("000000&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
-        Meals = loadMeals(meals: Meals)
-        print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
-        for meal1 in Meals {
-        print("******************************************")
-        print("meal => \(meal1.returnDocData())")
-        print("******************************************")
-        }
-        print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-*/
-        
 
     }
 

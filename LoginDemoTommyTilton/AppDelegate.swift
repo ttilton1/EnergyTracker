@@ -30,6 +30,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             coloredAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
             UINavigationBar.appearance().standardAppearance = coloredAppearance
             UINavigationBar.appearance().scrollEdgeAppearance = coloredAppearance
+           //make light mode all the time
+            window?.overrideUserInterfaceStyle = .light
+            
         } else {
             // Fallback on earlier versions
         }

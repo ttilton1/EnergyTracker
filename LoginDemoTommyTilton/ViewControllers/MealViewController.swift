@@ -220,14 +220,17 @@ class MealViewController: UIViewController, UITextFieldDelegate {
                     }
                 */
                 //transition to homescreen
+            //Steos from yesterday
+            /*
             ProfileDataStore.getTodaysSteps { (final) in
                 self.step = final
                 let doc: [String: Any] = ["steps":final]
                 let db = Firestore.firestore()
                 let stringYesterday = self.getYesterdayStringDate()
             db.collection("users").document(userID).collection("Steps").document(stringYesterday).setData(doc)
+                    
             }
-            
+            */
             //Hourly steps from last week saved
             let healthKitStore = HKHealthStore()
             let type = HKQuantityType.quantityType(forIdentifier: .stepCount)!
@@ -242,17 +245,17 @@ class MealViewController: UIViewController, UITextFieldDelegate {
             
             query.initialResultsHandler = { query, results, error in
                 
-                print("inside")
+                //print("inside")
                 let endDate = Date()
                 let startDate = Calendar.current.startOfDay(for: Calendar.current.date(byAdding: .day, value: -7, to: now)!)
                 if let myResults = results{
-                    print("double inside")
+                    //print("double inside")
                     myResults.enumerateStatistics(from: startDate, to: endDate) {
                         
                         statistics, stop in
-                        print("tripple inside")
+                        //print("tripple inside")
                         let quantity = statistics.sumQuantity()
-                        print("4 inside")
+                        //print("4 inside")
                         let date = statistics.startDate
                         // let steps = statistics.sumQuantity()?.doubleValue(for: HKUnit.count())
                         var steps = quantity?.doubleValue(for: HKUnit.count())
@@ -288,8 +291,8 @@ class MealViewController: UIViewController, UITextFieldDelegate {
 
             navigationController?.popViewController(animated: true)
                     
-                }
-    
+                
+        }
         
     } //end submitPressed
     

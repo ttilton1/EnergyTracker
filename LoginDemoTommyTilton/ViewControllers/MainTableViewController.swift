@@ -20,39 +20,116 @@ class MainTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.hidesBackButton = true
-      //  self.view.backgroundColor = Colors.appTintColor.color
-
-    //   registerNotications()
-        //extra setup
+        title = "Energetics Tracker"
+    
         tableView.tableFooterView = UIView()
     
-        /*Hacking with swift notification
-         // Do any additional setup after loading the view.
-         registerLocal()
-         scheduleLocal()
-         
-         */ //end of hacking with swift push notifications
+        //For iOS 12 app
         navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-       navigationController?.navigationBar.prefersLargeTitles = true //large title
-        /* //COLOR CHANGING NOT WORKING HERE
-         navigationController?.navigationBar.titleTextAttributes =
-         [NSAttributedString.Key.strokeColor: UIColor.init(red: 21/255, green: 70/255, blue: 232/255, alpha: 1)]
-         */
-        title = "Energetics Tracker"
+        navigationController?.navigationBar.prefersLargeTitles = true //large title
         navigationController?.navigationBar.barTintColor = Colors.tableViewBackgroundColor.color
-        self.navigationController?.navigationBar.tintColor = UIColor.white;
- 
+        
+        self.navigationController?.navigationBar.tintColor = UIColor.white; //.tintColor ->nav bar items like "back" and sign out whtie
+        
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Sign out", style: .done, target: self, action: #selector(logout))
         // toolbarItems = [spacer, signOut] //array with flex space and reset button, tooolbarItems comes
-   //     navigationController?.isToolbarHidden = false //toolbar shownr
+        //navigationController?.isToolbarHidden = false //toolbar shownr
         
   
         
     } //End viewDidLoad()
     
-  
+  /*
+    @objc func getTopMostViewController() -> UIViewController? {
+        var topMostViewController = UIApplication.shared.keyWindow?.rootViewController
+        
+        while let presentedViewController = topMostViewController?.presentedViewController {
+            topMostViewController = presentedViewController
+        }
+        
+        return topMostViewController
+    }
+    */
+    @objc func logout() {
+ 
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+            let mainStoryboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let nav = mainStoryboard.instantiateViewController(withIdentifier: Constants.Storyboard.viewController) as UIViewController
+            let vc = UINavigationController(rootViewController: nav)
+            vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: true, completion: nil)
+
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+        }
+    }
+
     
+    
+    
+    //rows stuff
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return choices.count
+        //override - > changing parent class, func is method, called tableView
+        //parameters inside method decide what happened
+        //tableView is first parameter, the one we will base number of rows off
+        //2nd parameter is number of rows of section
+        //pictures.count - we want as many cells there are as many pictures
+    }
+    
+    //specialize which row look like. Row is specified at indexPath. section number and row number, 1 section so can just use row number
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var cell = tableView.dequeueReusableCell(withIdentifier: "itemChoices", for: indexPath) //creates new constant cell by dequeuing recycled cell from table, give it identifier which matches what we said in Interface Builder "Picture"
+        //cell.textLabel?.text = choices[indexPath.row] //gives table cell same as picture name from pictures array, ? shows may or may not be textlabel
+        
+        if indexPath.row == 0 {
+         cell = TableCell(text: "Enter a meal", style: .default, reuseIdentifier: "itemChoices")
+         } else if indexPath.row == 1 {
+         cell = TableCell(text: "Mood Level Input", style: .default, reuseIdentifier: "itemChoices")
+        }  else if indexPath.row == 2 {
+            cell = TableCell(text: "Send Step Data", style: .default, reuseIdentifier: "itemChoices")
+        } else if indexPath.row == 3 {
+            cell = TableCell(text: "Meal History", style: .default, reuseIdentifier: "itemChoices")
+        } else if indexPath.row == 4 {
+            cell = TableCell(text: "Authorize Notifications", style: .default, reuseIdentifier: "itemChoices")
+        }
+        return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if choices[indexPath.row] == "Enter a meal" {
+            if let vc = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.mealViewController) as? MealViewController {
+                navigationController?.pushViewController(vc, animated: true)
+            }
+        } else if choices[indexPath.row] == "Mood Level Input"{
+            if let vc = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.moodsViewController) as? MoodsViewController {
+                navigationController?.pushViewController(vc, animated: true)
+            }
+            
+        } else if choices[indexPath.row] == "Send Step Data" {
+            if let vc = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.activityViewController) as? ActivityDataViewController {
+                navigationController?.pushViewController(vc, animated: true)
+            }
+        } else if choices[indexPath.row] == "Meal History" {
+            if let vc = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.displayMealViewController) as? DisplayMealTableViewController {
+                navigationController?.pushViewController(vc, animated: true)
+            }
+        } else if choices[indexPath.row] == "Authorize Notifications" {
+            if let vc = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.NotificationsViewController) as? NotificationsViewController {
+                navigationController?.pushViewController(vc, animated: true)
+            }
+        }
+ 
+    }
+
+    
+
+} //end class
+
+//Extras for future reference on notifications
 /*
     //GOOD NOTIFICATIONS MANAGEMENT
     //registerNotifications 9/13/19
@@ -147,90 +224,3 @@ class MainTableViewController: UITableViewController {
      */
     //
     
-    @objc func getTopMostViewController() -> UIViewController? {
-        var topMostViewController = UIApplication.shared.keyWindow?.rootViewController
-        
-        while let presentedViewController = topMostViewController?.presentedViewController {
-            topMostViewController = presentedViewController
-        }
-        
-        return topMostViewController
-    }
-    
-    @objc func logout() {
- 
-        let firebaseAuth = Auth.auth()
-        do {
-            try firebaseAuth.signOut()
-            let mainStoryboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let nav = mainStoryboard.instantiateViewController(withIdentifier: Constants.Storyboard.viewController) as UIViewController
-            let vc = UINavigationController(rootViewController: nav)
-            vc.modalPresentationStyle = .fullScreen
-            self.present(vc, animated: true, completion: nil)
-
-        } catch let signOutError as NSError {
-            print ("Error signing out: %@", signOutError)
-        }
-    }
-
-    
-    
-    
-    //rows stuff
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return choices.count
-        //override - > changing parent class, func is method, called tableView
-        //parameters inside method decide what happened
-        //tableView is first parameter, the one we will base number of rows off
-        //2nd parameter is number of rows of section
-        //pictures.count - we want as many cells there are as many pictures
-    }
-    
-    //specialize which row look like. Row is specified at indexPath. section number and row number, 1 section so can just use row number
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCell(withIdentifier: "itemChoices", for: indexPath) //creates new constant cell by dequeuing recycled cell from table, give it identifier which matches what we said in Interface Builder "Picture"
-        //cell.textLabel?.text = choices[indexPath.row] //gives table cell same as picture name from pictures array, ? shows may or may not be textlabel
-        
-        if indexPath.row == 0 {
-         cell = TableCell(text: "Enter a meal", style: .default, reuseIdentifier: "itemChoices")
-         } else if indexPath.row == 1 {
-         cell = TableCell(text: "Mood Level Input", style: .default, reuseIdentifier: "itemChoices")
-        }  else if indexPath.row == 2 {
-            cell = TableCell(text: "Send Step Data", style: .default, reuseIdentifier: "itemChoices")
-        } else if indexPath.row == 3 {
-            cell = TableCell(text: "Meal History", style: .default, reuseIdentifier: "itemChoices")
-        } else if indexPath.row == 4 {
-            cell = TableCell(text: "Authorize Notifications", style: .default, reuseIdentifier: "itemChoices")
-        }
-        return cell
-    }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if choices[indexPath.row] == "Enter a meal" {
-            if let vc = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.mealViewController) as? MealViewController {
-                navigationController?.pushViewController(vc, animated: true)
-            }
-        } else if choices[indexPath.row] == "Mood Level Input"{
-            if let vc = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.moodsViewController) as? MoodsViewController {
-                navigationController?.pushViewController(vc, animated: true)
-            }
-            
-        } else if choices[indexPath.row] == "Send Step Data" {
-            if let vc = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.activityViewController) as? ActivityDataViewController {
-                navigationController?.pushViewController(vc, animated: true)
-            }
-        } else if choices[indexPath.row] == "Meal History" {
-            if let vc = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.displayMealViewController) as? DisplayMealTableViewController {
-                navigationController?.pushViewController(vc, animated: true)
-            }
-        } else if choices[indexPath.row] == "Authorize Notifications" {
-            if let vc = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.NotificationsViewController) as? NotificationsViewController {
-                navigationController?.pushViewController(vc, animated: true)
-            }
-        }
- 
-    }
-
-    
-
-} //end class

@@ -38,6 +38,8 @@ class MealObject {
         return ret
     }
     
+    
+    
     func setFromDocData(meal: [String: Any]) -> () {
         self.location = meal["location"] as? String ?? ""
         self.foodContent = meal["food content"] as? String ?? ""

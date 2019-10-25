@@ -68,7 +68,21 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             else{
                 //self.transitionToHome()
               //  self.shouldPerformSegue(withIdentifier: "SeguePlease", sender: nil)
-               self.performSegue(withIdentifier: "Seguev", sender: nil)
+    //self.ref.child("users/\(user.uid)/username").setValue(username)
+            //Save to realtime database:
+            let uid = result!.user.uid
+            let docData: [String: Any] = ["uid":uid, "email":email]
+            var ref: DatabaseReference!
+
+                ref = Database.database().reference()
+                ref.child("Users").child(uid).updateChildValues(docData)
+                { (error, databaserefval)  in
+                if error != nil {
+                    self.showError("Error in saving user realtime data")
+                }
+            
+                }
+                 self.performSegue(withIdentifier: "Seguev", sender: nil)
             }
         }
         

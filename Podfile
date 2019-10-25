@@ -11,6 +11,7 @@ target 'PontzerDemoTommyTilton' do
 	pod 'Firebase/Auth'
 	pod 'Firebase/Core'
 	pod 'Firebase/Firestore'
+	pod 'Firebase/Database'
 	pod 'Protobuf', :inhibit_warnings => true
 # add pods for any other desired Firebase products
 # https://firebase.google.com/docs/ios/setup#available-pods

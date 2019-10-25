@@ -12,6 +12,7 @@ import Firebase
 import FirebaseAuth
 import CoreData
 import HealthKit
+import FirebaseDatabase
 
 class MealViewController: UIViewController, UITextFieldDelegate {
     
@@ -202,6 +203,17 @@ class MealViewController: UIViewController, UITextFieldDelegate {
                     }
                 
                 }
+            //Save to Firebase realtime database
+            var ref: DatabaseReference!
+
+            ref = Database.database().reference()
+            ref.child("Users").child(userID).child("Meals").child(dateEaten).setValue(docData)
+            { (error, databaserefval)  in
+            if error != nil {
+                self.showError("Error in saving user realtime data")
+            }
+        
+            }
             //save Data locally to Core Data
             let mealDataPoint = MealDataPoint(context: self.container.viewContext)
             mealDataPoint.dateEaten = meal1.dateEaten

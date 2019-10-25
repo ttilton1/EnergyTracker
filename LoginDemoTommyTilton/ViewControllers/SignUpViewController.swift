@@ -10,6 +10,7 @@ import UIKit
 import FirebaseAuth
 import Firebase
 import FirebaseFirestore
+import FirebaseDatabase
 
 class SignUpViewController: UIViewController, UITextFieldDelegate {
 
@@ -107,10 +108,23 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                 else {
                     //User was created successfully, now store first and last name in new "document" in firestore
                     let uid = result!.user.uid
-                    let docData: [String: Any] = ["firstname":firstName, "lastname":lastName, "uid":uid]
+                    let docData: [String: Any] = ["firstname":firstName, "lastname":lastName, "uid":uid,
+                                                  "email":email]
                     let db = Firestore.firestore()
                     db.collection("users").document(uid).setData(docData)
                    
+                    //Save user in Realtime Database
+                    var ref: DatabaseReference!
+
+                        ref = Database.database().reference()
+                        ref.child("Users").child(uid).setValue(docData)
+                        { (error, databaserefval)  in
+                        if error != nil {
+                            self.showError("Error in saving user realtime data")
+                        }
+                    
+                        }
+                    
               //      self.transitionToHome()
                     /*
                     let mainStoryboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)

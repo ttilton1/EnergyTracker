@@ -52,6 +52,16 @@ class MoodsViewController: UIViewController {
             }
             
         }
+        //send to realtime
+        let docData: [String: String] = [timeEntered: sliderLabel.text!]
+        var ref: DatabaseReference!
+        ref = Database.database().reference()
+        ref.child("Users").child(userID).child("Moods").updateChildValues(docData)
+        { (error, databaserefval)  in
+        if error != nil {
+            self.showError("Error in saving user realtime data")
+        }
+        }
 
     }
     @IBAction func cancelPressed(_ sender: Any) {

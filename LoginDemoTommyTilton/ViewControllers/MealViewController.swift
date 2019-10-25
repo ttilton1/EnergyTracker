@@ -207,12 +207,11 @@ class MealViewController: UIViewController, UITextFieldDelegate {
             var ref: DatabaseReference!
 
             ref = Database.database().reference()
-            ref.child("Users").child(userID).child("Meals").child(dateEaten).setValue(docData)
+            ref.child("Users").child(userID).child("Meals").child(dateEaten).updateChildValues(docData)
             { (error, databaserefval)  in
             if error != nil {
                 self.showError("Error in saving user realtime data")
             }
-        
             }
             //save Data locally to Core Data
             let mealDataPoint = MealDataPoint(context: self.container.viewContext)
@@ -277,7 +276,7 @@ class MealViewController: UIViewController, UITextFieldDelegate {
                         let formatter = DateFormatter()
                         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
                         let myString = formatter.string(from: date)
-                        
+                        //Send to Firestore
                         let db = Firestore.firestore()
                         let userID = Auth.auth().currentUser!.uid
                         let doc: [String: Any] = ["steps":steps!]
@@ -287,13 +286,22 @@ class MealViewController: UIViewController, UITextFieldDelegate {
                             }
                         
                         }
+                        
+                        //Send to realtime database
+                        var ref: DatabaseReference!
+                        let doc2: [String: Any] = [dateEaten:steps!]
+                        ref = Database.database().reference()
+                        ref.child("Users").child(userID).child("StepCounts").updateChildValues(doc2)
+                        { (error, databaserefval)  in
+                        if error != nil {
+                            self.showError("Error in saving user realtime data")
+                        }
+                    
+                        }
+                        
+                        
                     }
-                        //self.stepArray[myString] = steps
-                        
-                        //  print("\(date): steps = \(steps)")
-                        
-                        //    }
-                        //next step look at guard statement instead of if let above **********************************************
+ 
                         
                     }
                 }

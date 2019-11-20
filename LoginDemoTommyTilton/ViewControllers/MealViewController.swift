@@ -33,22 +33,6 @@ class MealViewController: UIViewController, UITextFieldDelegate {
     var mealDataPoints = [MealDataPoint]()
     var stepArray = [Double]()
     
-    /*
-    //persistence manager for coredata to save meal
-    let persistenceManager: PersistenceManager
-    init(persistenceManager: PersistenceManager){
-        self.persistenceManager = persistenceManager
-        super.init(nibName: nil, bundle: nil)
-
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
- */
-    
-
-    
     //viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,15 +54,6 @@ class MealViewController: UIViewController, UITextFieldDelegate {
                 print("Unresolved error \(error)")
             }
         }
-        
-        /* probable delete this
-        let mealDataPoint = MealDataPoint()
-        mealDataPoint.dateEaten = "Woo"
-        mealDataPoint.foodContent = "http://www.example.com"
-        mealDataPoint.location = "Place"
-        mealDataPoint.mealSize = "l"
-        mealDataPoint.timeEntered = "time"
-    */
         //hackingwithswiftend
     }
     
@@ -93,22 +68,8 @@ class MealViewController: UIViewController, UITextFieldDelegate {
             }
         }
     }
-    /*
-    func loadSavedData() {
-        let request = MealDataPoint.createFetchRequest()
-        let sort = NSSortDescriptor(key: "dateEaten", ascending: false)
-        request.sortDescriptors = [sort]
-        
-        do {
-            mealDataPoints = try container.viewContext.fetch(request)
-            print("Got \(mealDataPoints.count) commits")
-          //  tableView.reloadData()
-        } catch {
-            print("Fetch failed")
-        }
-    }
-    //end hacking with swift
-    */
+    
+
     func setUpElements() {
         
         //hide error label
@@ -140,12 +101,9 @@ class MealViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func textFieldEditing(_ sender: UITextField) {
         //autopopulate textfield
-  /*      let toolBar = UIToolbar().ToolbarPiker(mySelect: #selector(MealViewController.dismissPicker))
-        
-        dateTextField.inputAccessoryView = toolBar
-  */
+
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
     //    dateFormatter.dateStyle = DateFormatter.Style.medium
    //     dateFormatter.timeStyle = DateFormatter.Style.medium
         dateTextField.text = dateFormatter.string(from: Date())
@@ -158,17 +116,11 @@ class MealViewController: UIViewController, UITextFieldDelegate {
     
     @objc func datePickerValueChanged(sender:UIDatePicker){
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
         dateTextField.text = dateFormatter.string(from: sender.date)
         //get it in version we want to store for organization
     }
-    /*
-    @objc func dismissPicker() {
-        
-        view.endEditing(true)
-        
-    }
-    */
+
     
     @IBAction func submitPressed(_ sender: Any) {
         let error = validateFields()
@@ -177,7 +129,6 @@ class MealViewController: UIViewController, UITextFieldDelegate {
             showError(error!)
         }
         else {
-            
             //create clean versions of the data
             let location = locationText.text!.trimmingCharacters(in: .newlines)
             let foodContent = foodContentText.text!.trimmingCharacters(in: .newlines)
@@ -213,6 +164,7 @@ class MealViewController: UIViewController, UITextFieldDelegate {
                 self.showError("Error in saving user realtime data")
             }
             }
+        
             //save Data locally to Core Data
             let mealDataPoint = MealDataPoint(context: self.container.viewContext)
             mealDataPoint.dateEaten = meal1.dateEaten
@@ -221,100 +173,8 @@ class MealViewController: UIViewController, UITextFieldDelegate {
             mealDataPoint.mealSize = meal1.mealSize
             mealDataPoint.timeEntered = meal1.timeEntered
             self.saveContext()
-        
-            /*//Old code
-            db.collection("users").document(userID).collection("Meals").addDocument(data: ["food content":foodContent, "location":location, "meal size":mealSize, "time":timestamp]) { (error) in
-                    if error != nil {
-                        //Show error message
-                        self.showError("Error saving user data")
-                        }
-                    }
-                */
-                //transition to homescreen
-            //Steos from yesterday
-            /*
-            ProfileDataStore.getTodaysSteps { (final) in
-                self.step = final
-                let doc: [String: Any] = ["steps":final]
-                let db = Firestore.firestore()
-                let stringYesterday = self.getYesterdayStringDate()
-            db.collection("users").document(userID).collection("Steps").document(stringYesterday).setData(doc)
-                    
-            }
-            */
-            //Hourly steps from last week saved
-            let healthKitStore = HKHealthStore()
-            let type = HKQuantityType.quantityType(forIdentifier: .stepCount)!
-            let now = Date()
-            let todayBeg = Calendar.current.startOfDay(for: now)
-            let startDate = Calendar.current.startOfDay(for: Calendar.current.date(byAdding: .day, value: -7, to: now)!)
-            var interval = DateComponents()
-            interval.hour = 1
-            print("Hello")
-            let predicate = HKQuery.predicateForSamples(withStart: startDate, end: now, options: .strictStartDate)
-            let query = HKStatisticsCollectionQuery(quantityType: type, quantitySamplePredicate: predicate, options: [.cumulativeSum], anchorDate: todayBeg, intervalComponents: interval)
-            
-            query.initialResultsHandler = { query, results, error in
-                
-                //print("inside")
-                let endDate = Date()
-                let startDate = Calendar.current.startOfDay(for: Calendar.current.date(byAdding: .day, value: -7, to: now)!)
-                if let myResults = results{
-                    //print("double inside")
-                    myResults.enumerateStatistics(from: startDate, to: endDate) {
-                        
-                        statistics, stop in
-                        //print("tripple inside")
-                        let quantity = statistics.sumQuantity()
-                        //print("4 inside")
-                        let date = statistics.startDate
-                        // let steps = statistics.sumQuantity()?.doubleValue(for: HKUnit.count())
-                        var steps = quantity?.doubleValue(for: HKUnit.count())
-                        if steps == nil {
-                            steps = 0.0
-                        }
-                        let formatter = DateFormatter()
-                        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-                        let myString = formatter.string(from: date)
-                        //Send to Firestore
-                        let db = Firestore.firestore()
-                        let userID = Auth.auth().currentUser!.uid
-                        let doc: [String: Any] = ["steps":steps!]
-                    db.collection("users").document(userID).collection("StepCounts").document(myString).setData(doc) { (error) in
-                            if error != nil {
-                                self.showError("Error in saving user data")
-                            }
-                        
-                        }
-                        
-                        //Send to realtime database
-                        var ref: DatabaseReference!
-                        let doc2: [String: Any] = [dateEaten:steps!]
-                        ref = Database.database().reference()
-                        ref.child("Users").child(userID).child("StepCounts").updateChildValues(doc2)
-                        { (error, databaserefval)  in
-                        if error != nil {
-                            self.showError("Error in saving user realtime data")
-                        }
-                    
-                        }
-                        
-                        
-                    }
- 
-                        
-                    }
-                }
-            
-            healthKitStore.execute(query)
-            
-
-            navigationController?.popViewController(animated: true)
-                    
-                
-        }
-        
-    } //end submitPressed
+    }
+    }//end submitPressed
     
     
     func transitionToHome() {
@@ -326,7 +186,7 @@ class MealViewController: UIViewController, UITextFieldDelegate {
     
     func getCurrentStringDate() -> String {
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        formatter.dateFormat = "yyyy-MM-dd HH:mm"
         let myString = formatter.string(from: Date()) // string purpose I add here
         // convert your string to date
         let yourDate = formatter.date(from: myString)
@@ -342,7 +202,7 @@ class MealViewController: UIViewController, UITextFieldDelegate {
         
         let startOfYesterday = Calendar.current.startOfDay(for: Calendar.current.date(byAdding: .day, value: -1, to: Date())!)
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        formatter.dateFormat = "yyyy-MM-dd HH:mm"
         
 
         
@@ -360,14 +220,6 @@ class MealViewController: UIViewController, UITextFieldDelegate {
         self.view.endEditing(true)
         return false
     }
-/*
-    func getSteps() {
-        ProfileDataStore.getTodaysSteps { (final) in
-            self.step = final
-            self.step = 1.0
-        }
-    }
- */
     
 
 }

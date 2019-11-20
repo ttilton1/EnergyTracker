@@ -132,17 +132,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                     let vc = UINavigationController(rootViewController: nav)
  */
  //self.addChild(vc)
-
-                    /* //Old way, no way of setting Document ID
-                    db.collection("users").addDocument(data: ["firstname":firstName, "lastname":lastName, "uid":result!.user.uid]) { (error) in
-                        if error != nil {
-                            //Show error message
-                            self.showError("Error saving user data")
-                        }
-                    }
-                    */
-                    //transition to homescreen
-               //     self.transitionToHome()
                     
                 }
             }
@@ -156,20 +145,8 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         errorLabel.text = message
         errorLabel.alpha = 1
     }
-    /*
-    func transitionToHome() {
-        let mainStoryboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let nav = mainStoryboard.instantiateViewController(withIdentifier: Constants.Storyboard.homeViewController) as! UITableViewController
-        let vc = UINavigationController(rootViewController: nav)
-         self.present(vc, animated: true, completion: nil)
- */
-   //     let appDelegate = UIApplication.shared.delegate as! AppDelegate
-  //      appDelegate.window?.rootViewController = vc
-      /* //TUTORIAL Way
-    let homeViewController = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.homeViewController) as? HomeViewController
-        view.window?.rootViewController = homeViewController
-        view.window?.makeKeyAndVisible()
-        */ //newway
+ 
+
         
         /* THIS WORKEDDDD 9/15/19
         let storyboard = UIStoryboard(name: "Main", bundle: nil)

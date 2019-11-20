@@ -48,13 +48,13 @@ class NotificationsViewController: UIViewController {
         for n in 0 ... 6 {
             manager.notifications.append(contentsOf: [
                 
-                Notification(id: "reminder-\(1+3*n)", title: "Please enter mood data in the Energy Tracker App, Thank you!", datetime: dateManager.notification1[n]),
-                Notification(id: "reminder-\(2+3*n)", title: "Please enter mood data in the Energy Tracker App, Thank you!", datetime: dateManager.notification2[n]),
-                Notification(id: "reminder-\(3+3*n)", title: "Please enter mood data in the Energy Tracker App, Thank you!", datetime:
+                Notification(id: "reminder-\(1+3*n)", title: "Please enter mood data, Thank you!", datetime: dateManager.notification1[n]),
+                Notification(id: "reminder-\(2+3*n)", title: "Please enter your mood, Thank you!", datetime: dateManager.notification2[n]),
+                Notification(id: "reminder-\(3+3*n)", title: "Please enter your mood data, Thank you!", datetime:
                     dateManager.notification3[n]),
-                Notification(id: "MealReminder-\(1+2*n)", title: "Please remember to enter your meals in the Energy Tracker App", datetime:
+                Notification(id: "MealReminder-\(1+2*n)", title: "Please remember to enter your meals", datetime:
                     dateManager.mealNotification1[n]),
-                Notification(id: "MealReminder-\(2+2*n)", title: "Please remember to enter your meals in the Energy Tracker App", datetime:
+                Notification(id: "MealReminder-\(2+2*n)", title: "Please remember to enter your meals", datetime:
                     dateManager.mealNotification2[n])
                 ])
         }

@@ -16,7 +16,11 @@ class Utilities {
         // Create the bottom line
         let bottomLine = CALayer()
         
-        bottomLine.frame = CGRect(x: 0, y: textfield.frame.height - 2, width: textfield.frame.width - 40, height: 2)
+        //bottomLine.frame = CGRect(x: 0, y: textfield.frame.height - 2, width: textfield.frame.width - 40 , height: 2)
+        bottomLine.frame = CGRect(x: 0, y: textfield.frame.height - 2, width: UIScreen.main.bounds.width*0.8 , height: 2)
+        
+        
+        //FIND FUNCTION THAT RETURNS WIDTH OF TEXTBOX< SEE IF CODE EXISTST THAT COULD HELP PORGrra
         
         bottomLine.backgroundColor = UIColor.init(red: 21/255, green: 70/255, blue: 232/255, alpha: 1).cgColor
         

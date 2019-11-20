@@ -66,10 +66,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 self.errorLabel.alpha = 1
             }
             else{
-                //self.transitionToHome()
-              //  self.shouldPerformSegue(withIdentifier: "SeguePlease", sender: nil)
-    //self.ref.child("users/\(user.uid)/username").setValue(username)
-            //Save to realtime database:
+              
             let uid = result!.user.uid
             let docData: [String: Any] = ["uid":uid, "email":email]
             var ref: DatabaseReference!
@@ -110,23 +107,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         let vc = UINavigationController(rootViewController: controller)
         self.present(vc, animated: true, completion: nil)
 */
-        /*
-    let navViewController = storyboard?.instantiateViewController(withIdentifier: "nav2") as? UINavigationController
-    view.window?.rootViewController = navViewController
-    view.window?.makeKeyAndVisible()
- */
-   /*
-     
-        //option2
-         if let vc = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.homeViewController) as? HomeViewController {
-            //maybe should put rootviewcontroller assignment here.
-            navigationController?.pushViewController(vc, animated: true)
-        }
- */
-        /*
-        UserDefaults.standard.set(true, forKey: "status")
-        Switcher.updateRootVC()
-*/
+
     }
     
     func validateFields() -> String? {

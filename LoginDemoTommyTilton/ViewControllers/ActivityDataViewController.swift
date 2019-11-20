@@ -67,28 +67,44 @@ class ActivityDataViewController: UIViewController {
                             let quantity = statistics.sumQuantity()
                 //            print("4 inside")
                             let date = statistics.startDate
-                            // let steps = statistics.sumQuantity()?.doubleValue(for: HKUnit.count())
                             var steps = quantity?.doubleValue(for: HKUnit.count())
                             if steps == nil {
                                 steps = 0.0
                             }
                             let formatter = DateFormatter()
-                            formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+                            formatter.dateFormat = "yyyy-MM-dd HH:mm"
                             let myString = formatter.string(from: date)
                             
-                            let db = Firestore.firestore()
                             let userID = Auth.auth().currentUser!.uid
+                            
+                            
+                            var ref: DatabaseReference!
+                            let doc2: [String: Any] = [myString:steps!]
+                            ref = Database.database().reference()
+                                
+                            ref.child("Users").child(userID).child("StepTracker").updateChildValues(doc2)
+                                { (error, databaserefval)  in
+                                if error != nil {
+                                    self.showError("Error in saving user realtime data")
+                                }
+                            
+                                }
+                          
+                            
+                            //OLD FIRESTORE DATABASE
+                            
+                            let db = Firestore.firestore()
                             let doc: [String: Any] = ["steps":steps!]
-                            db.collection("users").document(userID).collection("StepCounts").document(myString).setData(doc) { (error) in
+                            db.collection("users").document(userID).collection("StepTracker").document(myString).setData(doc) { (error) in
                                 if error != nil {
                                     self.showError("Error in saving user data")
                                 } else {
                                     self.showPositive("Step Data sent! Thank you.")
                                 }
                                 
-                            }
+                            } //END FS
+                           
                         }
-                        
                     }
                 }
                 
@@ -120,10 +136,4 @@ class ActivityDataViewController: UIViewController {
         errorLabel.text = message
         errorLabel.alpha = 1
     }
- 
-    
-    
-
-
-
 }

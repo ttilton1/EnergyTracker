@@ -1,5 +1,5 @@
 //
-//  MealDataPoint+CoreDataClass.swift
+//  ExerciseDataPoint+CoreDataClass.swift
 //  PontzerDemoTommyTilton
 //
 //  Created by Thomas Tilton on 11/15/19.
@@ -11,6 +11,6 @@ import Foundation
 import CoreData
 
 
-public class MealDataPoint: NSManagedObject {
+public class ExerciseDataPoint: NSManagedObject {
 
 }

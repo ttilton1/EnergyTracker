@@ -14,7 +14,7 @@ import UserNotifications
 
 class MainTableViewController: UITableViewController {
     
-    var choices = ["Enter a meal", "Mood Level Input", "Send Step Data", "Meal History", "Authorize Notifications"] //left off here
+    var choices = ["Enter a Meal", "Enter an Exercise", "Mood Level Input", "Send Step Data", "Meal History", "Exercise History", "Authorize Notifications"] //left off here
    
     
     override func viewDidLoad() {
@@ -67,9 +67,7 @@ class MainTableViewController: UITableViewController {
         }
     }
 
-    
-    
-    
+
     //rows stuff
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return choices.count
@@ -86,25 +84,35 @@ class MainTableViewController: UITableViewController {
         //cell.textLabel?.text = choices[indexPath.row] //gives table cell same as picture name from pictures array, ? shows may or may not be textlabel
         
         if indexPath.row == 0 {
-         cell = TableCell(text: "Enter a meal", style: .default, reuseIdentifier: "itemChoices")
-         } else if indexPath.row == 1 {
+         cell = TableCell(text: "Enter a Meal", style: .default, reuseIdentifier: "itemChoices")
+         }
+        else if indexPath.row == 1 {
+         cell = TableCell(text: "Enter an Exercise", style: .default, reuseIdentifier: "itemChoices")
+        } else if indexPath.row == 2 {
          cell = TableCell(text: "Mood Level Input", style: .default, reuseIdentifier: "itemChoices")
-        }  else if indexPath.row == 2 {
+        }  else if indexPath.row == 3 {
             cell = TableCell(text: "Send Step Data", style: .default, reuseIdentifier: "itemChoices")
-        } else if indexPath.row == 3 {
-            cell = TableCell(text: "Meal History", style: .default, reuseIdentifier: "itemChoices")
         } else if indexPath.row == 4 {
+            cell = TableCell(text: "Meal History", style: .default, reuseIdentifier: "itemChoices")
+        } else if indexPath.row == 5 {
+            cell = TableCell(text: "Exercise History", style: .default, reuseIdentifier: "itemChoices")
+        } else if indexPath.row == 6 {
             cell = TableCell(text: "Authorize Notifications", style: .default, reuseIdentifier: "itemChoices")
         }
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if choices[indexPath.row] == "Enter a meal" {
+        if choices[indexPath.row] == "Enter a Meal" {
             if let vc = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.mealViewController) as? MealViewController {
                 navigationController?.pushViewController(vc, animated: true)
             }
-        } else if choices[indexPath.row] == "Mood Level Input"{
+        } else if choices[indexPath.row] == "Enter an Exercise"{
+            if let vc = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.ExerciseViewController) as? ExerciseViewController {
+                navigationController?.pushViewController(vc, animated: true)
+            }
+            
+        }else if choices[indexPath.row] == "Mood Level Input"{
             if let vc = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.moodsViewController) as? MoodsViewController {
                 navigationController?.pushViewController(vc, animated: true)
             }
@@ -117,7 +125,11 @@ class MainTableViewController: UITableViewController {
             if let vc = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.displayMealViewController) as? DisplayMealTableViewController {
                 navigationController?.pushViewController(vc, animated: true)
             }
-        } else if choices[indexPath.row] == "Authorize Notifications" {
+        } else if choices[indexPath.row] == "Exercise History" {
+            if let vc = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.ExerciseDisplayViewController) as? ExerciseDisplayViewController {
+                navigationController?.pushViewController(vc, animated: true)
+            }
+        }else if choices[indexPath.row] == "Authorize Notifications" {
             if let vc = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.NotificationsViewController) as? NotificationsViewController {
                 navigationController?.pushViewController(vc, animated: true)
             }

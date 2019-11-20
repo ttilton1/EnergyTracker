@@ -432,6 +432,34 @@
             </objects>
             <point key="canvasLocation" x="7212" y="2201"/>
         </scene>
+        <!--Exercise Display View Controller-->
+        <scene sceneID="RsF-Ir-bQJ">
+            <objects>
+                <tableViewController storyboardIdentifier="exerciseDisplayVC" id="7uS-Ef-AMT" customClass="ExerciseDisplayViewController" customModule="PontzerDemoTommyTilton" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Ih2-1L-L8x">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="exerciseDisp" id="JFv-nk-oNG">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JFv-nk-oNG" id="7H7-xP-rBh">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="7uS-Ef-AMT" id="NwZ-xh-Xrr"/>
+                            <outlet property="delegate" destination="7uS-Ef-AMT" id="Lv9-tC-zmf"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="73y-Of-NoQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7987" y="2202"/>
+        </scene>
         <!--Moods View Controller-->
         <scene sceneID="Mw6-MX-C0X">
             <objects>
@@ -449,9 +477,9 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mood Level: 4" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8rg-5s-NMS">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8rg-5s-NMS">
                                         <rect key="frame" x="0.0" y="60" width="334" height="50"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -563,6 +591,103 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LFU-i7-zcF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="7180" y="874"/>
+        </scene>
+        <!--Exercise View Controller-->
+        <scene sceneID="mYa-YA-QCS">
+            <objects>
+                <viewController storyboardIdentifier="exerciseVC" id="8Bg-gT-raq" customClass="ExerciseViewController" customModule="PontzerDemoTommyTilton" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="B1g-Zw-O4o">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="qdc-VL-wxi">
+                                <rect key="frame" x="40" y="84" width="334" height="370.5"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Exercise Type (cardio/muscle/etc)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eBG-Xx-AUi" userLabel="Exercise Type">
+                                        <rect key="frame" x="0.0" y="0.0" width="334" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Exercise name (run/swim/lift/etc)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="I6s-fI-lqO">
+                                        <rect key="frame" x="0.0" y="70" width="334" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Duration/Distance" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7qc-nc-SVY">
+                                        <rect key="frame" x="0.0" y="140" width="334" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="Wks-V1-ZBV"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Start Time" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jwe-LV-ckX" userLabel="Date and Time Text">
+                                        <rect key="frame" x="0.0" y="210" width="334" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="EditingBegin:" destination="8Bg-gT-raq" eventType="editingDidBegin" id="z4y-bg-RbC"/>
+                                            <action selector="textFieldEditing:" destination="aKw-lB-L8D" eventType="editingDidBegin" id="kIU-6G-wZo"/>
+                                        </connections>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aiS-Uz-adR">
+                                        <rect key="frame" x="0.0" y="280" width="334" height="50"/>
+                                        <state key="normal" title="Submit"/>
+                                        <connections>
+                                            <action selector="SubmitPressed:" destination="8Bg-gT-raq" eventType="touchUpInside" id="7ay-kb-eSb"/>
+                                            <action selector="submitPressed:" destination="aKw-lB-L8D" eventType="touchUpInside" id="Wrg-us-HaB"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BdC-y1-oOV">
+                                        <rect key="frame" x="0.0" y="350" width="334" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="7qc-nc-SVY" firstAttribute="height" secondItem="eBG-Xx-AUi" secondAttribute="height" id="3f2-1g-GoY"/>
+                                    <constraint firstItem="7qc-nc-SVY" firstAttribute="height" secondItem="I6s-fI-lqO" secondAttribute="height" id="Qx4-vv-Hof"/>
+                                    <constraint firstItem="7qc-nc-SVY" firstAttribute="leading" secondItem="qdc-VL-wxi" secondAttribute="leading" id="Xfc-LU-9H4"/>
+                                    <constraint firstAttribute="trailing" secondItem="7qc-nc-SVY" secondAttribute="trailing" id="eH0-Zt-Q0x"/>
+                                    <constraint firstItem="Jwe-LV-ckX" firstAttribute="height" secondItem="7qc-nc-SVY" secondAttribute="height" id="gDo-cY-qyf"/>
+                                    <constraint firstItem="7qc-nc-SVY" firstAttribute="height" secondItem="aiS-Uz-adR" secondAttribute="height" id="v1j-tE-uL4"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="qdc-VL-wxi" firstAttribute="top" secondItem="FWg-0H-DJ1" secondAttribute="top" constant="40" id="4Bk-3a-GvC"/>
+                            <constraint firstItem="qdc-VL-wxi" firstAttribute="top" secondItem="FWg-0H-DJ1" secondAttribute="top" constant="40" id="5v4-Ih-Ilm"/>
+                            <constraint firstItem="FWg-0H-DJ1" firstAttribute="trailing" secondItem="qdc-VL-wxi" secondAttribute="trailing" constant="40" id="QQF-nF-oeU"/>
+                            <constraint firstItem="qdc-VL-wxi" firstAttribute="leading" secondItem="FWg-0H-DJ1" secondAttribute="leading" constant="40" id="nHe-lN-mK1"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="FWg-0H-DJ1"/>
+                    </view>
+                    <connections>
+                        <outlet property="DurAndDistance" destination="7qc-nc-SVY" id="8Jl-cy-O9l"/>
+                        <outlet property="ErrorLabel" destination="BdC-y1-oOV" id="ibZ-Pa-lWg"/>
+                        <outlet property="ExerciseName" destination="I6s-fI-lqO" id="GbN-kh-K2o"/>
+                        <outlet property="ExerciseType" destination="eBG-Xx-AUi" id="U8S-Pl-tSi"/>
+                        <outlet property="StartTime" destination="Jwe-LV-ckX" id="gQe-0P-9Sc"/>
+                        <outlet property="SubmitButton" destination="aiS-Uz-adR" id="ZUJ-7o-11y"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rhL-Dk-DfY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7938" y="857"/>
         </scene>
         <!--Meal View Controller-->
         <scene sceneID="IrC-7h-QT1">

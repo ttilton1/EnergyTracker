@@ -21,9 +21,6 @@ class MoodsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpElements()
-
-        
-
         // Do any additional setup after loading the view.
     }
     
@@ -75,7 +72,7 @@ class MoodsViewController: UIViewController {
     
     func getCurrentStringDate() -> String {
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        formatter.dateFormat = "yyyy-MM-dd HH:mm"
         let myString = formatter.string(from: Date()) // string purpose I add here
         // convert your string to date
         let yourDate = formatter.date(from: myString)
